@@ -84,8 +84,8 @@
                 this.yPosition += fieldValue.y * flowSpeed * 2;
                 
                 // Keep particle if within extended boundary
-                return this.xPosition >= -500 && this.xPosition <= canvasW + 500 &&
-                       this.yPosition >= -500 && this.yPosition <= canvasH + 500;
+                return this.xPosition >= -1000 && this.xPosition <= canvasW + 1000 &&
+                       this.yPosition >= -1000 && this.yPosition <= canvasH + 1000;
             }
             
             renderParticle() {

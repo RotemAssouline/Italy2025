@@ -79,8 +79,8 @@
                 this.vy = vy_half + ay_new * dt * 0.5;
                 
                 // Add damping
-                this.vx *= 0.999;
-                this.vy *= 0.999;
+                // this.vx *= 0.999;
+                // this.vy *= 0.999;
                 
                 // Boundary conditions
                 if (this.x < this.radius || this.x > width - this.radius) {

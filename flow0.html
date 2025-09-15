@@ -51,7 +51,7 @@ class FlowingParticle {
                 this.yPosition = startY;
                 this.particleSize = 2;
                 this.trailPoints = [];
-                this.maxTrailLength = 600; // Longer trails for better visibility
+                this.maxTrailLength = 200; // Longer trails for better visibility
             }
             
             updateParticle() {
@@ -64,14 +64,14 @@ class FlowingParticle {
                 }
                 
                 const fieldValue = computeFieldVector(this.xPosition, this.yPosition);
-                const flowSpeed = 2;
+                const flowSpeed = 1;
                 
                 this.xPosition += fieldValue.x * flowSpeed * 2;
                 this.yPosition += fieldValue.y * flowSpeed * 2;
                 
                 // Keep particle if within extended boundary
-                return this.xPosition >= -250 && this.xPosition <= canvasW + 250 &&
-                       this.yPosition >= -250 && this.yPosition <= canvasH + 250;
+                return this.xPosition >= -500 && this.xPosition <= canvasW + 500 &&
+                       this.yPosition >= -500 && this.yPosition <= canvasH + 500;
             }
             
             renderParticle() {
@@ -100,8 +100,8 @@ class FlowingParticle {
             const spawnX = Math.random() * 170;
             const spawnY = Math.random() * 170;
             
-            const particlesInCloud = 100;
-            const cloudSpreadRadius = 40;
+            const particlesInCloud = 50;
+            const cloudSpreadRadius = 30;
             
             for (let i = 0; i < particlesInCloud; i++) {
                 const randomAngle = Math.random() * 2 * Math.PI;

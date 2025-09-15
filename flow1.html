@@ -78,7 +78,7 @@
                 }
                 
                 const fieldValue = computeFieldVector(this.xPosition, this.yPosition);
-                const flowSpeed = 2;
+                const flowSpeed = 1;
                 
                 this.xPosition += fieldValue.x * flowSpeed * 2;
                 this.yPosition += fieldValue.y * flowSpeed * 2;
@@ -90,16 +90,16 @@
             
             renderParticle() {
                 // Draw the complete trail with low opacity
-                if (this.trailPoints.length > 1) {
-                    canvasContext.strokeStyle = 'rgba(0, 0, 0, 0.2)';
-                    canvasContext.lineWidth = 1;
-                    canvasContext.beginPath();
-                    canvasContext.moveTo(this.trailPoints[0].x, this.trailPoints[0].y);
-                    for (let i = 1; i < this.trailPoints.length; i++) {
-                        canvasContext.lineTo(this.trailPoints[i].x, this.trailPoints[i].y);
-                    }
-                    canvasContext.stroke();
-                }
+                // if (this.trailPoints.length > 1) {
+                //     canvasContext.strokeStyle = 'rgba(0, 0, 0, 0.2)';
+                //     canvasContext.lineWidth = 1;
+                //     canvasContext.beginPath();
+                //     canvasContext.moveTo(this.trailPoints[0].x, this.trailPoints[0].y);
+                //     for (let i = 1; i < this.trailPoints.length; i++) {
+                //         canvasContext.lineTo(this.trailPoints[i].x, this.trailPoints[i].y);
+                //     }
+                //     canvasContext.stroke();
+                // }
                 
                 // Draw the particle dot
                 canvasContext.fillStyle = 'black';

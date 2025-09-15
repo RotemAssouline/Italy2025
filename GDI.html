@@ -78,7 +78,7 @@
       const data = image.data;
 
       // base → white gradient
-      const base = [127, 174, 186];   // #7FAEBA
+      const base = [150, 150, 150];   // originally #7FAEBA ([127, 174, 186])
       const white = [255, 255, 255];
 
       let maxDensity = 0;
@@ -101,7 +101,7 @@
           const p = densityMap[i * W + j];
 
           // normalized increases with density; adjust k as desired
-          const k = 50;
+          const k = 400;
           const normalized = Math.log(1 + k * p) / Math.log(1 + k * maxDensity);
           // if you want high density darker, use: const n = 1 - normalized;
           const n = normalized;

@@ -8,19 +8,42 @@
   <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/white.css" id="theme">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Alegreya+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Alegreya+Sans:wght@400;700;800&display=swap" rel="stylesheet"> -->
+
   <style>
+  @font-face {
+  font-family: 'Alegreya';
+  src: url('fonts/Alegreya/Alegreya-VariableFont_wght.ttf') format('woff2'),
+  font-weight: normal;
+  font-style: normal;
+  }
+  @font-face {
+  font-family: 'Alegreya Sans';
+  src: url('fonts/Alegreya_Sans/AlegreyaSans-Regular.ttf') format('woff2'),
+  font-weight: normal;
+  font-style: normal;
+  }
+    @font-face {
+  font-family: 'Alegreya Sans Bold';
+  src: url('fonts/Alegreya_Sans/AlegreyaSans-Bold.ttf') format('woff2'),
+  font-weight: normal;
+  font-style: normal;
+  }
   /* Typography setup */
   .reveal { font-family: 'Alegreya Sans', serif; }
   .reveal p, .reveal li { font-weight: 400; }
   .reveal strong, .reveal b { font-weight: 700; }
-  .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  .reveal h4 {
   font-family: 'Alegreya Sans', sans-serif;
+  font-weight: 500;
+  }
+  .reveal h1, .reveal h2, .reveal h3{
+  font-family: 'Alegreya Sans Bold', sans-serif;
   font-weight: 700;
   }
   #title { text-align:center; }
-  #title h2 { font-weight: 800; }
-  #title h3 { font-weight: 700; }
+  #title h2 { font-weight: 800;';}
+  #title h3 { font-weight: 500; }
   #title p { font-weight: 400; }
   .r-fit-text { font-size: clamp(18px, 2.6vw, 38px); }
   .tiny { font-size: 75%; }
@@ -33,12 +56,16 @@
   <style>
   h2 {
     text-transform: none; /* prevents automatic uppercase */
+    font-family: 'Alegreya Sans Bold';
   }
   </style>
+  <style>
+    .reveal section#title h2 { font-weight:700 !important; }
+</style>
 </head>
 <body>
   <div class="reveal"><div class="slides">
-    <section id="title" data-background-color="#7FAEBA">
+  <section id="title" data-background-color="#7FAEBA">
     <h2>Curvature-Dimension for Autonomous Lagrangians</h2>
     <h3>Ph.D. Thesis Defense</h3>
     
@@ -55,13 +82,13 @@
   </section>
 
   <section data-background-color="#7FAEBA">
-    <p style="font-size:50px"><b>Prelude</b>: The Brunn-Minkowski inequality</span> </p>
+    <p style="font-size:60px"><b>Prelude</b>: The Brunn-Minkowski inequality</span> </p>
   </section>
 
-  <section>
-    <h3 style="color: #7FAEBA">Minkowski summation</h3>
-    <div style="text-align: left;">
-      <p>\(A,B \subseteq \mathbb{R}^n\) &nbsp;, \(0 \lt \lambda \lt 1\) &nbsp.</p>
+  <section data-auto-animate>
+    <h3 style="color: #6c939e" data-id="bmeq">The Brunn-Minkowski inequality</h3>
+    <div style="text-align: left; font-size: .9em;">
+      <p>\(A,B \subseteq \mathbb{R}^n\) &nbsp;, \(0 \le \lambda \le 1\) &nbsp.</p>
       \[(1-\lambda) A + \lambda B : = \left\{(1-\lambda)a + \lambda b \, \mid \, a \in A, \, b \in B\right\}.\]
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 2048 646">
@@ -79,13 +106,13 @@
     </svg>
   </section>
 
-  <section>
-    <h3 style="color: #7FAEBA">The Brunn-Minkowski inequality</h3>
+  <section data-auto-animate>
+    <h3 style="color: #6c939e" data-id="bmeq">The Brunn-Minkowski inequality</h3>
     <div style="text-align: left; font-size: .9em;">
-      <p><b>Theorem</b> (Brunn-Minkowski-Lusternik) :</p> For every \(A,B \subseteq \mathbb{R}^n\) &nbsp; Borel, nonempty and every \(0 \lt \lambda \lt 1\) &nbsp;,
+      <p><b>Theorem</b> (Brunn-Minkowski-Lusternik) :</p> For every \(A,B \subseteq \mathbb{R}^n\) &nbsp; Borel, nonempty and every \(0 \le \lambda \le 1\) &nbsp;,
       \[\mathrm{Vol}((1-\lambda) A + \lambda B)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A)^{1/n} + \lambda\cdot\mathrm{Vol}(B)^{1/n}.\]
     </div>
-  <svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <svg width="800" height="400" viewBox="0 40 800 400" xmlns="http://www.w3.org/2000/svg" class = "fragment">
   <defs>
     <style>
       .axis-text { font-family: Arial, sans-serif; font-size: 12px; fill: #666; }
@@ -126,11 +153,11 @@
     <g stroke="#f0f0f0" stroke-width="1" stroke-dasharray="3,3">
       <!-- Vertical grid lines -->
       <!-- <line x1="80" y1="30" x2="80" y2="310"/> -->
-      <line x1="120" y1="30" x2="120" y2="310"/>
+      <!-- <line x1="120" y1="30" x2="120" y2="310"/> -->
       <!-- <line x1="160" y1="30" x2="160" y2="310"/> -->
       <line x1="200" y1="30" x2="200" y2="310"/>
       <!-- <line x1="240" y1="30" x2="240" y2="310"/> -->
-      <line x1="280" y1="30" x2="280" y2="310"/>
+      <!-- <line x1="280" y1="30" x2="280" y2="310"/> -->
       <!-- <line x1="320" y1="30" x2="320" y2="310"/> -->
       
       <!-- Horizontal grid lines -->
@@ -147,42 +174,42 @@
     <line x1="40" y1="30" x2="40" y2="310" stroke="#333" stroke-width="1"/>
     
     <!-- X-axis ticks and labels -->
-    <!-- <g class="axis-text">
+    <g class="axis-text">
       <line x1="40" y1="310" x2="40" y2="315" stroke="#333"/>
       <text x="40" y="330" text-anchor="middle">0</text>
       
-      <line x1="120" y1="310" x2="120" y2="315" stroke="#333"/>
-      <text x="120" y="330" text-anchor="middle">1</text>
+      <!-- <line x1="120" y1="310" x2="120" y2="315" stroke="#333"/>
+      <text x="120" y="330" text-anchor="middle">1</text> -->
       
       <line x1="200" y1="310" x2="200" y2="315" stroke="#333"/>
-      <text x="200" y="330" text-anchor="middle">2</text>
+      <text x="200" y="330" text-anchor="middle">1/2</text>
       
-      <line x1="280" y1="310" x2="280" y2="315" stroke="#333"/>
-      <text x="280" y="330" text-anchor="middle">3</text>
+      <!-- <line x1="280" y1="310" x2="280" y2="315" stroke="#333"/>
+      <text x="280" y="330" text-anchor="middle">3</text> -->
       
       <line x1="360" y1="310" x2="360" y2="315" stroke="#333"/>
-      <text x="360" y="330" text-anchor="middle">4</text>
-    </g> -->
+      <text x="360" y="330" text-anchor="middle">1</text>
+    </g>
     
     <!-- Y-axis ticks and labels -->
-    <!-- <g class="axis-text">
+    <g class="axis-text">
       <line x1="35" y1="310" x2="40" y2="310" stroke="#333"/>
       <text x="32" y="314" text-anchor="end">0</text>
       
-      <line x1="35" y1="230" x2="40" y2="230" stroke="#333"/>
-      <text x="32" y="234" text-anchor="end">10k</text>
+      <line x1="35" y1="170" x2="40" y2="170" stroke="#333"/>
+      <text x="32" y="174" text-anchor="end">1</text>
+
+      <line x1="35" y1="62.2" x2="40" y2="62.2" stroke="#333"/>
+      <text x="32" y="66.2" text-anchor="end">√​​π</text>
       
-      <line x1="35" y1="150" x2="40" y2="150" stroke="#333"/>
-      <text x="32" y="154" text-anchor="end">20k</text>
-      
-      <line x1="35" y1="70" x2="40" y2="70" stroke="#333"/>
-      <text x="32" y="74" text-anchor="end">30k</text>
-    </g> -->
+      <line x1="35" y1="30" x2="40" y2="30" stroke="#333"/>
+      <text x="32" y="34" text-anchor="end">2</text>
+    </g>  
     
     <!-- Axis labels -->
     <text x="200" y="355" text-anchor="middle" class="axis-label" style="font-size: .5em;">λ</text>
 
-    <text x="0" y="150" text-anchor="middle" class="axis-label" transform="rotate(-90, 15, 170)" style="font-size: .5em;">Area</text>
+    <text x="0" y="150" text-anchor="middle" class="axis-label" transform="rotate(-90, 15, 170)" style="font-size: .5em;">Area<tspan baseline-shift="super" font-size="60%">1/2</tspan></text>
     
     <!-- Area curve path -->
     <path id="area-curve" stroke="#7FAEBA" stroke-width="2" fill="none" d=""/>
@@ -240,14 +267,14 @@
       let path = '';
       const steps = 200;
       
-      for (let i = 0; i <= steps; i++) {
+      for (let i = 0; i <= steps/2; i++) {
         const t = (i / steps) * animationDuration;
         const rx = getCurrentRadius(t);
         const area = calculateArea(rx);
         
-        // Convert to graph coordinates
-        const x = 40 + (t / animationDuration) * 320; // 320px wide graph
-        const y = 310 - (area / 40000) * 280; // 280px tall graph, 25000 max area
+        // Convert to graph coordinates and take square root
+        const x = 40 + 2 * (t / animationDuration) * 320; // 320px wide graph
+        const y = 310 - (Math.sqrt(area) / 200) * 280; // 280px tall graph, 25000 max area
         
         if (i === 0) {
           path += `M ${x} ${y}`;
@@ -272,7 +299,7 @@
       animatedShape.setAttribute('ry', currentRadius);
       
       // Update time indicator
-      const indicatorX = 40 + (currentTime / animationDuration) * 320;
+      const indicatorX = 40 + 320 - Math.abs(320 - 2 * (currentTime / animationDuration) * 320);
       timeIndicator.setAttribute('x1', indicatorX);
       timeIndicator.setAttribute('x2', indicatorX);
       
@@ -298,14 +325,14 @@
     </div>
 
     <!-- Volume -->
-    <div data-id="vol" style="position:absolute;left:0%;top:60%;width:45%;height:20%; opacity: 1" class = "fragment">
+    <div data-id="vol" style="position:absolute;left:27.5%;top:20%;width:45%;height:20%; opacity: 0">
       <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
         Volume
       </div>
     </div>
 
     <!-- Averaging -->
-    <div data-id="sum" style="position:absolute;left:55%;top:60%;width:45%;height:20%; opacity: 1" class = "fragment">
+    <div data-id="sum" style="position:absolute;left:27.5%;top:20%;width:45%;height:20%; opacity: 0">
       <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
         Averaging
       </div>
@@ -314,36 +341,66 @@
   </div>
 </section>
 
-<!-- SLIDE 2 -->
+
 <section data-auto-animate data-auto-animate-id="bm">
   <div style="position:relative;width:100%;aspect-ratio:600/400;margin:0 auto;font-family:'Alegreya Sans',system-ui,sans-serif">
 
-    <!-- Top (kept for matching, hidden) -->
-    <div data-id="top" style="position:absolute;left:15%;top:17.5%;width:70%;height:25%; opacity:.05">
+    <!-- Top -->
+    <div data-id="top" style="position:absolute;left:15%;top:17.5%;width:70%;height:25%;">
       <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:700; font-size:1.8em;">
         Brunn - Minkowski
       </div>
     </div>
 
-    <!-- Volume moved up to (0,0) -->
-    <div data-id="vol" style="position:absolute;left:0%;top:0%;width:45%;height:20%;">
+    <!-- Volume -->
+    <div data-id="vol" style="position:absolute;left:0%;top:60%;width:45%;height:20%; opacity: 1">
       <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
         Volume
       </div>
     </div>
 
     <!-- Averaging -->
+    <div data-id="sum" style="position:absolute;left:55%;top:60%;width:45%;height:20%; opacity: 1">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Averaging
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section data-auto-animate data-auto-animate-id="bm">
+  <div style="position:relative;width:100%;aspect-ratio:600/400;margin:0 auto;font-family:'Alegreya Sans',system-ui,sans-serif">
+
+    <div data-id="top" style="position:absolute;left:15%;top:17.5%;width:70%;height:25%; opacity:.05">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:700; font-size:1.8em;">
+        Brunn - Minkowski
+      </div>
+    </div>
+
+    <div data-id="vol" style="position:absolute;left:0%;top:0%;width:45%;height:20%;">
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
+        Volume
+      </div>
+    </div>
+
     <div data-id="sum" style="position:absolute;left:55%;top:60%;width:45%;height:20%; opacity:.05">
       <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
         Averaging
       </div>
     </div>
 
-    <!-- Panel under Volume -->
     <div data-id="panel" style="position:absolute;left:0%;top:25%;width:100%;height:75%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
-    <div style="position:absolute;left:5%;top:30%;width:76.6667%;height:60%;line-height:1.4;text-align:left; font-size: .9em;">
-        <p class = "fragment">Replace \( \mathrm{Vol} \) with \( \mu = e^{-\psi}\mathrm{Vol} \) &nbsp;.</p>
-        <p class = "fragment">Characterization of measures \(\mu\) satisfying Brunn-Minkowski inequalities in terms of the function \(\psi\) (log concave, \(s\)-concave) <span style="color: #69919b ; font-size: .8em">(Borell '75, Brascamp-Lieb '76)</span></p>
+    <div style="position:absolute;left:5%;top:30%;width:90%;height:60%;line-height:1.4;text-align:left; font-size: .9em;">
+        <p class = "fragment">Replace \( \mathrm{Vol} \) with \[ \mu = e^{-\psi}\mathrm{Vol}. \]</p>
+        <ul>
+          <li class = "fragment"> 
+            Measures \(\mu\) satisfying Brunn-Minkowski can be characterized in terms of the function \(\psi\) <span style="color: #6f97a1 ; font-size: .8em">(Borell '75, Brascamp-Lieb '76)
+          </li>
+          <li class = "fragment">
+            Bakry-Émery curvature-dimension <span style="color: #a1a1a1 ; font-size: .8em">(more on this later...)</span>
+          </li>
+        </ul>
     </div>
 
   </div>
@@ -380,10 +437,11 @@
           <ul>
             <li>The point \((1-\lambda)a + \lambda b\) &nbsp; is the <b>\(\lambda\)-midpoint</b> of \(a\) and \(b\).</li>
             <li class = "fragment">Makes sense on any Riemannian manifold.</li>
-            <li class="fragment">Brunn-Minkowski characterizes lower Ricci curvature bounds <span style="color: #69919b ; font-size: .8em">(Cordero-Erausquin, McCann & Schmuckenschläger '01, Sturm '06, Magnabosco, Portinale, Rossi '22)</span></li>
-            <li class="fragment">Metric measure spaces <span style="color: #69919b ; font-size: .8em">(Cavalletti-Mondino '15)</span></li>
-            <li class="fragment">Sub-Riemannian <span style="color: #69919b ; font-size: .8em">(Barilari, Rizzi '19, Barilari, Mondino '22)</span></li>
-            <li class="fragment">Lorentzian <span style="color: #69919b ; font-size: .8em">(McCann '20, Cavalletti-Mondino '20, ...)</span></li>
+            <li class="fragment">Brunn-Minkowski characterizes lower Ricci curvature bounds <span style="color: #6f97a1 ; font-size: .8em">(Cordero-Erausquin, McCann & Schmuckenschläger '01, Sturm '06, Magnabosco, Portinale, Rossi '22)</span>.</li>
+            <span class = "fragment">
+            <li>Metric measure spaces <span style="color: #6f97a1 ; font-size: .8em">(Sturm '06, Cavalletti-Mondino '15)</span>.</li>
+            <li>Sub-Riemannian <span style="color: #6f97a1 ; font-size: .8em">(Barilari, Rizzi, Mondino '22)</span>.</li>
+            <li>Lorentzian <span style="color: #6f97a1 ; font-size: .8em">(McCann '20, Cavalletti-Mondino '20)</span>.</li></span>
           </ul>
       </div>
   </div>
@@ -401,26 +459,23 @@
       </div>
     </div>
 
-    <!-- Volume -->
     <div data-id="vol" style="position:absolute;left:0%;top:60%;width:45%;height:20%; opacity: 0">
       <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
         Volume
       </div>
     </div>
 
-    <!-- Averaging -->
     <div data-id="sum" style="position:absolute;left:27.5%;top:27.5%;width:45%;height:20%;">
       <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#7FAEBA;border-radius:30px;font-weight:600;font-size:1.6em;">
         Averaging
       </div>
     </div>
 
-    <!-- Panel under Volume -->
-    <div data-id="panel" style="position:absolute;left:5%;top:52.5%;width:90%;height:20%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
+    <div data-id="panel" style="position:absolute;left:10%;top:52.5%;width:80%;height:20%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
     <div style="position:absolute;left:10%;top:53%;width:80%;height:20%;line-height:1.4;text-align:center;font-size:1.4em;">
-          <p data-id: "bywhat"> Using <span style="color: #69919b;">a linear structure</span></p>
-      </div>
-  </div>
+          <p data-id: "bywhat"> Using <span style="color: #6f97a1;">a linear structure</span></p>
+    </div>
+    </div>
 </section>
 
 <section data-auto-animate data-auto-animate-id="bm">
@@ -448,11 +503,11 @@
     </div>
 
     <!-- Panel under Volume -->
-    <div data-id="panel" style="position:absolute;left:5%;top:52.5%;width:90%;height:20%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
+    <div data-id="panel" style="position:absolute;left:20%;top:52.5%;width:60%;height:20%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
     <div style="position:absolute;left:10%;top:53%;width:80%;height:20%;line-height:1.4;text-align:center;font-size:1.4em;">
-          <p data-id: "bywhat"> Using <span style="color: #69919b;">a metric</span></p>
-      </div>
-  </div>
+          <p data-id: "bywhat"> Using <span style="color: #6f97a1;">a metric</span></p>
+    </div>
+    </div>
 </section>
 
 <section data-auto-animate data-auto-animate-id="bm">
@@ -482,7 +537,7 @@
     <!-- Panel under Volume -->
     <div data-id="panel" style="position:absolute;left:5%;top:52.5%;width:90%;height:20%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
     <div style="position:absolute;left:10%;top:53%;width:80%;height:20%;line-height:1.4;text-align:center;font-size:1.4em;">
-          <p data-id: "bywhat"> Using <span style="color: #69919b;">a principle of least action?</span></p>
+          <p data-id: "bywhat"> Using <span style="color: #6f97a1;">a principle of least action?</span></p>
       </div>
   </div>
 </section>
@@ -497,24 +552,22 @@
     <p>
       A <b> Lagrangian </b> \(L\) on a manifold \(M\) is a smooth function on the tangent bundle \(TM\). 
     </p>
-    <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🔮 A Lagrangian assigns a value to each position and velocity.</p>
+    <p style="color: #6f97a1; font-size: .95em;" class="fragment">🔮 A Lagrangian assigns a value to each position and velocity.</p>
     <p class = "fragment">
       The <b> action </b> of a curve \(\gamma:[0,T]\to M \) &nbsp is:
       \[\mathrm{A}(\gamma) : = \int_0^T L(\dot\gamma(t))dt.\]
     </p>
     <p class = "fragment">A <b> minimizing extremal </b> of \(L\) is a curve which minimizes the action \(\mathrm{A}\) among all curves with the same endpoints.</p>
-    <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🔮 An extremal is a path for which the integral of the values assigned by 
-      \(L\) over the entire journey is the smallest possible.</p>
     </div>
   </section>
 
   <section>
     <div style="text-align: left;">
-    <h3 style="color: #7FAEBA">examples</h3>
+    <h3 style="color: #6f97a1">examples</h3>
     <ul>
       <li class = "fragment"> \(L = T - V\), where \(T\) is kinetic energy (i.e. quadratic in the velocity) and \(V\) is potential energy.
         <ul>
-          <li class = "fragment"><b>Riemannian metrics</b>: \(V = 0\).<br> action ~ length\(^2\), extremals - geodesics.</li>
+          <li class = "fragment"><b>Riemannian metrics</b>: \(V = 0\).<br> action ~ length\(^2\), extremals = geodesics.</li>
           <li class = "fragment"><b> Mechanical Lagrangians</b>: \(V\) is a potential depending only on position.</li>
         </ul>
       </li>
@@ -526,12 +579,15 @@
   </section>
 
   <section>
-    <div style="text-align: left;">
+    <div style="text-align: left; font-size: .9em;">
       <p>The <b> Hamiltonian </b> is the function
       \[H(p) : = \sup_{v \in T_xM}p(v) - L(v), \quad p\in T^*_xM,\,\,x \in M.\]</p>
-      <p class = "fragment">The tangent vector where the above supremum is achieved is denoted by \(\mathcal{L}p\), and we call the map \(\mathcal{L} : T^*M \to T_xM\) the <b> Legendre transform </b> associated to \(L\).</p>
+      <p class = "fragment">The supremum is achieved at \(\mathcal{L}p\), where \(\mathcal{L} : T^*M \to TM\) &nbsp; is the <b> Legendre transform </b> associated to \(L\).</p>
+
+      <p class = "fragment">A curve is an extremal if and only if it is the projection to \(M\) of an integral curve of the <b>Hamiltonian flow</b> \(\Phi^H\) &nbsp; on \(T^*M\).</p>
+
       <p  class = "fragment">The <b> energy </b> is the function \(E : = H \circ \mathcal{L}^{-1}\) &nbsp on \(TM\). If \(\gamma\) is a minimizing extremal then \(E(\dot\gamma)\equiv 0\) &nbsp;.</p>
-      <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🔮 The Hamiltonian is essentially the energy and is conserved along extremals.</p>
+      <p style="color: #6f97a1; font-size: .95em;" class="fragment">🔮 A Lagrangian gives rise to notions of energy and momentum; energy is conserved along extremals.</p>
     </div>
     
   </section>
@@ -540,14 +596,14 @@
     <div style="text-align: left;">
     <p>Given a smooth function \(u\) and a measure \(\mu\) with a smooth density on \(M\), we set
     \[\nabla u : = \mathcal{L}du \qquad \text{ and } \qquad \mathbf{L} u : = \mathrm{div}_\mu(\nabla u).\]</p>
+    <p style="color: #6f97a1; font-size: .95em;" class="fragment">🔮 With a Lagrangian and a reference measure, we have notions of gradient and Laplacian.</p>
     <p class = "fragment">The <b>Hamilton-Jacobi equation</b> is
     \[H(du) = 0.\]
-    If \(u\) is a solution to the H-J equation, then the integral curves of \(u\) are zero-energy extremals.</p>
-    <p style="color: #7FAEBA; font-size: .95em;" class="fragment">🔮 Once we fix a Lagrangian, we have natural notions of gradient and Laplacian.</p>
+    If \(u\) is a solution to the H-J equation, then the integral curves of \(\nabla u\) are zero-energy extremals.</p>
     </div>
   </section>
 
-  <section data-background-iframe="offline_simulations/electric.html" data-background-interactive>
+  <section data-background-iframe="electric.html" data-background-interactive>
     <h3>The mechanical Lagrangian</h3>
     <div style="position:relative; z-index:1;">
     \[L(x,v) = \frac{|v|^2}{2} - V(x),\]
@@ -556,34 +612,37 @@
     <br>
     <br>
     More generally:
-    \[ L = g/2 - V\]
-    where \(g\) is a Riemannian metric and \(V\) is a smooth function. 
+    \[ L = g/2 - V,\]
+    \(g\) &nbsp; - Riemannian metric and \(V\) &nbsp;- smooth function. 
   </section>
 
   <section data-background-iframe="nbody.html" data-background-interactive>
-    <h3 style="color: #7FAEBA">The many-body Lagrangian</h3>
-    <div style="position:relative; z-index:1;">
+    <h3 style="color: #6f97a1">The many-body Lagrangian</h3>
+    <div style="position:relative; z-index:1; font-size: .8em;">
       \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}.  \]
 
       
-    \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \frac12 + \underbrace{\sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|}}_{U},\]
-    \(G\) – gravitational constant, \(m_i\) – masses, \(x_i = (x_i^1,\dots,x_i^d)\) – position of the \(i\)-th body.
+    \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \underbrace{\sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|}}_{U},\]
 
     <br><br>
-    \(\,\,\,\mathrm{Ric}_{\mathrm{Vol},\infty} = -\Delta U + U^{-1}|\nabla U|^2 - (2U)^{-2}(dU)^2 \ge 0.\)
+
+    \(G\) – gravitational constant, \(m_i\) – masses, <br>\(x_i = (x_i^1,\dots,x_i^d)\) &nbsp;  – position of the \(i\)-th body.
+<!-- 
+    <br><br>
+    \(\,\,\,\mathrm{Ric}_{\mathrm{Vol},\infty} = -\Delta U + U^{-1}|\nabla U|^2 - (2U)^{-2}(dU)^2 \ge 0.\) -->
     </div>
   </section>
 
   <section data-background-iframe="magnetic.html" data-background-interactive>
     <h3>The magnetic Lagrangian</h3>
     <div style="position:relative; z-index:1;">
-    \[L(x,v) = \frac{|v|^2}{2} + \frac12 + A(x,v),\]
+    \[L(x,v) = \frac{|v|^2}{2} + A(x,v),\]
     <br>
     \(A\) - Magnetic field - Linear in \(v\).
     <br>
     <br>
     More generally:
-    \[ L = g/2 + 1/2 + \eta\]
+    \[ L = g/2 + \eta\]
     where \(g\) is a Riemannian metric and \(\eta\) is a one-form. 
   </section>
 
@@ -608,24 +667,43 @@
       <p class="fragment">
       Such \(T\) is called an <b> optimal transport map </b>.
       </p>
-      <p style="color: #7FAEBA; font-size: .9em" class="fragment"> 🔮 Optimal transport seeks the most cost-efficient way to redistribute mass, goods, etc. from one configuration to another. </p>
+      <p style="color: #6f97a1; font-size: .9em" class="fragment"> 🔮 Optimal transport seeks the most cost-efficient way to redistribute mass, goods, etc. from one configuration to another. </p>
     </div>
   </section>
 
   <section>
-    <div style="text-align: left">
-      Given a Lagrangian \(L\) on a manifold \(M\), we can consider the case \(\mathcal X _0 = \mathcal X_1 = M\) &nbsp; and define a cost function by setting
-      \[\mathrm{c}(x_0,x_1) : = \inf_\gamma \mathrm{A}(\gamma), \qquad x_0,x_1 \in M,\]
-      where the infimum is over all curves \(\gamma\) &nbsp joining \(x_0\) to \(x_1\), and \(\mathrm{A}\) is the action. 
-      <br>
-      <p class = "fragment">If \(L\) is a Riemannian metric, then \(\mathrm{c}\) is distance.</p>
-      <p style="color: #7FAEBA; font-size: .9em" class="fragment"> 🔮 A manifold endowed with a Lagrangian provides a natural framework for optimal transport problems. </p>
-    </div>
-  </section>
+  <div style="text-align: left ; font-size: .9em;">
+    Given a Lagrangian \(L\) on a manifold \(M\), we can set \(\mathcal X _0 = \mathcal X_1 = M\) and define a cost function
+    \[\mathrm{c}(x_0,x_1) : = \inf_\gamma \mathrm{A}(\gamma), \qquad x_0,x_1 \in M,\]
+    where the infimum is over all curves \(\gamma\) joining \(x_0\) to \(x_1\), and \(\mathrm{A}\) is the action. 
+    <br>
+    <p class="fragment">The function \(\mathrm{c}\) <b>satisfies the triangle inequality</b>, but may:</p>
+
+    <table style="width:100%; text-align:center; font-size: .9em;" class = "fragment">
+      <tr>
+        <td>
+          <div style="background:rgba(127,174,186,0.15);border-radius:30px;padding:.5em;  text-align: center;">
+            attain negative values
+          </div>
+        </td>
+        <td>
+          <div style="background:rgba(127,174,186,0.15);border-radius:30px;padding:.5em; text-align: center;">
+            be asymmetric
+          </div>
+        </td>
+        <td>
+          <div style="background:rgba(127,174,186,0.15);border-radius:30px;padding:.5em; text-align: center;">
+            not grow linearly along extremals.
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>
 
   <section>
     <div style="text-align: left">
-      <p><b>Theorem</b> (citations): 
+      <p><b>Theorem</b> <span style="color: #6f97a1;">(........, Bernard-Buffoni '05, Fathi-Figalli '07)</span>: 
           <span style="color: gray;">Under classical assumptions on the Lagrangian \(L\),</span> for every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measures on \(M\), there exists an optimal transport map \(T\) from \(\mu_0\) to \(\mu_1\). 
       </p>
     </div>
@@ -653,29 +731,29 @@
 
 
   <section>
-    <div style="text-align: left; font-size: .9em">
-      <p> In fact, there exists a family \(\{T_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of maps such that </p>
+    <div style="text-align: left; font-size: .85em">
+      <p> In fact, there exists a family \(\{T_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of maps such that:</p>
           <ul>
-            <li> \(T_0 = \mathrm{Id}\) &nbsp; and \(T_1\) is an optimal transport map from \(\mu_0\) to \(\mu_1\);</li>
-            <li> Each \(T_\lambda\) is an optimal transport map from \(\mu_0\) &nbsp to \[\mu_\lambda : = (T_\lambda)_*\mu_0.\] </li>
-            <li> \(\mu_0\)-a.e. curve \(\lambda\mapsto T_\lambda(x)\) &nbsp is a minimizing extremal.</li>
-            <li> There exists a viscosity subsolution \(u\) to the Hamilton-Jacobi equation, and \(\ell : M \to [0,\infty)\) &nbsp such that 
+            <li class = "fragment"> \(T_0 = \mathrm{Id}\) &nbsp; and \(T_1\) is an optimal transport map from \(\mu_0\) to \(\mu_1\).</li>
+            <li class = "fragment"> Each \(T_\lambda\) is an optimal transport map from \(\mu_0\) &nbsp to \[\mu_\lambda : = (T_\lambda)_*\mu_0.\] </li>
+            <li class = "fragment"> \(\mu_0\)-a.e. curve \(\lambda\mapsto T_\lambda(x)\) &nbsp is a minimizing extremal.</li>
+            <li class = "fragment"> There exists a viscosity subsolution \(u\) to the Hamilton-Jacobi equation, and \(\ell : M \to [0,\infty)\) &nbsp such that
                 \[T_\lambda = \pi\circ\Phi_{\lambda\ell}\circ du \qquad \text{\(\mu_0\) -a.e.}\]
             </li>
           </ul>
-      The family \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of probability measures is called a <b>displacement interpolation</b> between \(\mu_0\) and \(\mu_1\).
+      <p class="fragment">The family \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of probability measures is called a <b>displacement interpolation</b> between \(\mu_0\) and \(\mu_1\).</p>
     </div>
   </section>
 
-  <section>
+  <section   style="position:relative; overflow:hidden;" data-background-iframe="GDI.html" data-background-interactive>
     🔮
-    <div style="text-align: left; font-size: .9em">
-    <p style="color: #7FAEBA">  We can solve OT for costs arising from reasonable Lagrangians.</p>
+    <div style="text-align: left; font-size: .9em; color: #6f97a1">
+    <p>  We can solve OT for costs arising from reasonable Lagrangians.</p>
     <ul>
-      <li style="color: #7FAEBA" class="fragment">The solution describes not only where each piece of goods should end up, but also <i>along what path</i> it should be transported. </li>
-      <li style="color: #7FAEBA" class="fragment"> The resulting one-parameter family of maps (obtained by stopping the paths at intermediate times) are all optimal.</li>
-      <li style="color: #7FAEBA" class="fragment"> The measure \(\mu_0\) and \(\mu_1\) are thus joined be an "optimal path in the space of measures", which we call the displacement interpolation between \(\mu_0\) and \(\mu_1\).</li>
-      <li style="color: #7FAEBA" class="fragment"> The above solution can be read off from a "guiding function", and the transport trajectories are "gradient curves" of this function (in a Lagrangian sense).</li>
+      <li class="fragment">The solution describes not only where each piece of goods should end up, but also <i>along what path</i> it should be transported. </li>
+      <li class="fragment"> The resulting one-parameter family of maps (obtained by stopping the paths at intermediate times) are all optimal.</li>
+      <li class="fragment"> The measure \(\mu_0\) and \(\mu_1\) are thus joined be an "optimal path in the space of measures", which we call the displacement interpolation between \(\mu_0\) and \(\mu_1\).</li>
+      <li class="fragment"> The above solution can be read off from a "guiding function", and the transport trajectories are "gradient curves" of this function (in a Lagrangian sense) and are extremals.</li>
     </ul>
     </div>
   </section>
@@ -688,9 +766,9 @@
   <!-- <section>
     <div style="text-align: left;">
     <p> A <b> Riemannian manifold </b> is a smooth manifold equipped with a <b> Riemannian metric </b>, which is a smooth choice of inner product on each tangent space. </p>
-    <p style="color: #7FAEBA; font-size: .8em" class="fragment"> 🔮 A Riemannian manifold is a metric space which is Euclidean to first order. </p>
+    <p style="color: #6f97a1; font-size: .8em" class="fragment"> 🔮 A Riemannian manifold is a metric space which is Euclidean to first order. </p>
     <p class="fragment"> A <b> geodesic </b> on a Riemannian manifold is (at least locally) the shortest path between a pair of points on the manifold. </p>
-    <p style="color: #7FAEBA; font-size: .8em" class="fragment"> 🔮 Geodesics are the Riemannian analogue of straight lines. </p>
+    <p style="color: #6f97a1; font-size: .8em" class="fragment"> 🔮 Geodesics are the Riemannian analogue of straight lines. </p>
     </div>
   </section> -->
 
@@ -701,12 +779,12 @@
     \[\mathrm{Ric}(v) = \mathrm{tr}\left(w \mapsto R(w,v)v \right), \qquad v \in TM.\]
 
     <p class = "fragment">
-    If \(v\in T_xM\), and \(V \) is a vector field such that \[\nabla_VV = 0, \qquad V\vert_x = v \qquad \text{ and } \qquad \nabla V\vert_x = 0,\] then 
-    <span style="color: #69919b">\(V\mathrm{div} V\vert_p = -\mathrm{Ric}(v)\) &nbsp;  .
-    </span></p>
-    <p class = "fragment"> If \(V = \nabla u\) &nbsp; for a function \(u\) then <span style="color: #69919b">\((d\mathbf{L}u)(\nabla u)\vert_p = -\mathrm{Ric}(v)\) &nbsp;</span> &nbsp;.</p>
+    If \(V \) is a vector field such that \[\nabla_VV = 0, \qquad V\vert_x = v \qquad \text{ and } \qquad \nabla V\vert_x = 0,\] then 
+    <span style="color: #6f97a1">\(V\mathrm{div} V\vert_x = -\mathrm{Ric}(v)\)
+    </span>.</p>
+    <p class = "fragment"> If \(V = \nabla u\) &nbsp; for a function \(u\) then <span style="color: #6f97a1">\((d\Delta u)(\nabla u)\vert_x = -\mathrm{Ric}(v)\)</span>.</p>
 
-    <p style="color: #7FAEBA; font-size: 1" class="fragment"> 🔮 If we take a small object and let it flow along "parallel" geodesics in the direction \(v\), then the second (logarithmic) derivative of the object's volume will be roughly \(-\mathrm{Ric}(v)\)&nbsp. </p>
+    <p style="color: #6f97a1; font-size: 1" class="fragment"> 🔮 If we take a small object and let it flow along "parallel" geodesics in the direction \(v\), then the second (logarithmic) derivative of the object's volume will be roughly \(-\mathrm{Ric}(v)\)&nbsp. </p>
     </div>
   </section>
 
@@ -716,87 +794,103 @@
 
   <section>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp 0: &nbsp The Euclidean plane</h3>
-    <iframe data-src="flow0.html" width="100%" height="700" style="border:0;"></iframe>
+    <iframe data-src="flow0.html" width="90%" height="700" style="border:0;"></iframe>
   </section>
 
   <section>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp 1: &nbsp The sphere</h3>
-      <iframe data-src="flowsph.html" width="90%" height="600" style="border:0; translate: 0px -30px;"></iframe>
+      <iframe data-src="flowsph.html" width="100%" height="700" style="border:0; translate: 0px -30px;"></iframe>
   </section>
 
   <section>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp -1: &nbsp The hyperbolic plane</h3>
-    <iframe data-src="flowhyp.html" width="100%" height="600" style="border:0;"></iframe>
+    <iframe data-src="flowhyp.html" width="100%" height="700" style="border:0;"></iframe>
   </section>
 
-  <section style="position:relative; height:100vh; overflow:hidden;">
-    <h3 style="color: rgb(83, 129, 141); font-size: 1em">Ricci curvature and optimal transport</h3>
-    <iframe src="GDI.html"
+  <section data-auto-animate>
+    <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
+    <!-- <iframe src="GDI.html"
           style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; z-index:-1; opacity:0.5; transform: scale(1.2); " >
-  </iframe>
-    <div style="text-align: left; font-size: .7em;">
-      <p><b>Theorem</b> (McCann '97, Cordero-Eruasquin-McCann-Schmuckenschläger '01, Sturm '06, Lott-Villani '07): Let \((M,g)\) &nbsp; be a complete Riemannian manifold. TFAE:
+  </iframe> -->
+    <div style="text-align: left; font-size: .65em;">
+      <p><b>Theorem</b> <span style="color:#6c939e">(McCann '97, Cordero-Eruasquin-McCann-Schmuckenschläger '01, von Renesse-Sturm '05, Lott-Villani '07)</span>: Let \((M,g)\) &nbsp; be a complete Riemannian manifold. The following are equivalent:
         <ul>
           <li> \(\mathrm{Ric}_g \ge 0\) &nbsp;.</li>
-          <li> For every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measure on \(M\), the function
+          <li> For every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measures on \(M\), the function
             \[\lambda \mapsto \int_M \log f_\lambda d\mu_\lambda\]
-            is convex on \([0,1]\), &nbsp; where \[\mu_\lambda = f_\lambda\mathrm{Vol}_g\] is the displacement interpolation between \(\mu_0\) and \(\mu_1\) <b> with cost \(d^2\)</b>.
+            is convex on \([0,1]\), &nbsp; where \[\mu_\lambda = f_\lambda\mathrm{Vol}_g\] is the displacement interpolation between \(\mu_0\) and \(\mu_1\) with cost <b>d<sup>2</sup></b>.
           </li>
         </ul>
       </p>
-      <p style="color: #7FAEBA; font-size: 1" class="fragment"> 🔮 In nonnegative Ricci curvature, the intermediate measures in the displacement interpolation are more "spread out" than the measures at the endpoints. </p>
+      <p style="color: #6c939e; font-size: 1" class="fragment"> 🔮 In nonnegative Ricci curvature, the intermediate measures in the displacement interpolation are more "spread out" than the measures at the endpoints. </p>
     </div>
   </section>
 
-  <section>
-    <h3 style="color: rgb(83, 129, 141); font-size: 1em">Ricci curvature and optimal transport</h3>
+  <section data-auto-animate>
+    <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
     <ul>
-      <li class = "fragment">Arbitrary lower Ricci curvature and upper dimension bounds <span style="color: #69919b ; font-size: .8em">(Cordero-Eruasquin-McCann-Schmuckenschläger '01)</span></li>
-      <li class = "fragment">Synthetic curvature-dimension bounds via optimal transport<span style="color: #69919b ; font-size: .8em">(Sturm '06, Lott-Villani '07)</span></li>
-      <li class = "fragment">Metric measure space, Lorentzian spaces, Sub-Riemannian manifolds</li>
+      <li>Arbitrary lower Ricci curvature and upper dimension bounds; arbitrary reference measures (weighted Ricci curvature) <span style="color: #6f97a1 ; font-size: .8em">(C-M-S '01, von Renesse-Sturm '05, Lott-Villani '07)</span>.</li>
+      <li class = "fragment">Synthetic curvature-dimension bounds for mms's via optimal transport<span style="color: #6f97a1 ; font-size: .8em"> (Sturm '06, Lott-Villani '07)</span>.</li>
+      <li class = "fragment"><b>Application of optimal transport to prove geometric inequalities:</b> Brunn-Minkowski / Prékopa–Leindler / Borell-Brascamp-Lieb, functional inequalities, volume growth estimates, topological implications, heat semigroup estimates...</li>
     </ul>
   </section>
+
+  <section data-auto-animate>
+    <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
+    <div style="text-align: left; font-size: .9em;">
+      <p>\(L^1\) localization (needle decomposition):</p>
+      <ul>
+        <li class = "fragment"><span style="color: #6f97a1">Evans-Gangbo '00, Caffarelli-Feldman-McCann '01, Feldman-McCann '02</span> - The solution to the Monge-Kantorovich problem with cost <b>d</b> provides a disintegration of the manifold into disjoint 1d measures ("needles").</li>
+        <li class = "fragment"><span style="color: #6f97a1">Klartag '14</span> - this can be used to reduce geometric inequalities on weighted Riemannian manifolds to their 1d analogues <span style="color: #6f97a1; font-size: .8em;">(Gromov-Milman '87, Lovasz-Simonovits '93)</span>.</li>
+        <li class = "fragment">Curvature-dimension bounds descend to the needles.</li>
+        <li class = "fragment">Finsler <span style="color: #6f97a1 ; font-size: .8em">(Ohta '15)</span>, mms <span style="color: #6f97a1 ; font-size: .8em">(Cavalletti-Mondino '15)</span>, Sub-Riemannian <span style="color: #6f97a1 ; font-size: .8em">(Milman '19)</span>, Lorentzian <span style="color: #6f97a1 ; font-size: .8em">(Braun-McCann '23, Cavalletti-Mondino '24).</span></li>
+      </ul>
+    </div>
+  </section>
+
 
   <section data-background-color="#7FAEBA">
     <h2>Results</h2>
   </section>
 
   <section>
-  <h3 style="color: #7FAEBA; font-size: 1.1em">data</h3>
+  <h3 style="color: #6c939e; font-size: 1.1em">data</h3>
   <div style="text-align: left; font-size: .9em;">
     <ul>
       <li class = "fragment">
-        A smooth manifold \(M\).
-      </li>
-      <li class = "fragment">
-        A Lagrangian \(L : TM \to \mathbb{R}\) &nbsp which is:
+        A smooth manifold \(M^n\) with a Lagrangian \(L\) which is:
         <ul>
-          <li class = "fragment"> Smooth away from the zero section </li>
-          <li class = "fragment"> Fiberwise strongly convex and superlinear </li>
-          <li class = "fragment"> Supercritical (i.e. closed curves have positive action) </li>
+          <li> Smooth away from the zero section </li>
+          <li> Fiberwise strongly convex and superlinear </li>
+          <li> Supercritical (i.e. closed curves have positive action) </li>
         </ul>
-        <span class = "fragment">Every pair of points can be joined by a minimizing extremal. </span>
+        <div  class = "fragment">And such that:
+        <ul>
+          <li>Every pair of points can be joined by a minimizing extremal. </li>
+          <li>For every compact set \(A\) there exists a compact set \(A'\) such that all minimizing extremals with endpoints in \(A\) are contained in \(A'\). </li>
+        </ul></div>
       </li>
       <li class = "fragment">
-        A reference measure \(\mu\) on \(M\) with a smooth, positive density.
+        A measure \(\mu\) on \(M\) with a smooth, positive density.
       </li>
     </ul>
   </div>
   </section>
 
   <section>
-    <h3 style="color: #7FAEBA; font-size: 1em; text-align: left;">Weighted Ricci curvature for Lagrangians</h3>
+    <h3 style="color: #6c939e; font-size: 1em; text-align: left;">Weighted Ricci curvature for Lagrangians</h3>
     <div style="text-align: left; font-size: .9em;">
       <p>Given the above data, we may construct:</p>
       <ul>
-        <li class = "fragment">The <b>Ricci curvature</b> \(\mathrm{Ric}_L : TM\setminus\mathbf{0} \to \mathbb{R}\) &nbsp; &nbsp;, which coincides with the classical Ricci curvature for Riemannian and Finslerian manifolds.</li>
-        <li class = "fragment">The <b>weighted Ricci curvature</b> \(\mathrm{Ric}_{L,\mu,N}\), which depends on a parameter \(N \in (-\infty,\infty]\setminus \{1\}\) &nbsp; &nbsp; and which also coincides with the weighted (Bakry-Émery) Ricci curvature for Riemannian/Finslerian manifolds.</li>
+        <li class = "fragment">The <b>Ricci curvature</b> \(\mathrm{Ric}_L : TM\setminus\mathbf{0} \to \mathbb{R}\)&nbsp;, which coincides with the classical Ricci curvature for Riemannian and Finslerian manifolds.</li>
+        <li class = "fragment">The <b>weighted Ricci curvature</b> \(\mathrm{Ric}_{L,\mu,N}\), which depends on \(\mu\) and on a parameter \(N \in (-\infty,\infty]\setminus \{1\}\) &nbsp;, and which also coincides with the weighted (Bakry-Émery) Ricci curvature for weighted Riemannian/Finslerian manifolds.</li>
       </ul>
     </div>
+    <p style="color: #6f97a1 ; font-size: .8em" class="fragment">(Grifone '72, Foulon '86, Agrachev & Gamkrelidze '97, Lee '13)</p>
   </section>
 
   <section>
-    <h3 style="color: #7FAEBA; font-size: 1em;">The mechanical Lagrangian</h3>
+    <h3 style="color: #6c939e; font-size: 1em;">The mechanical Lagrangian</h3>
     <div style = "text-align: left; font-size: .8em;">
       \[L = g/2 + 1/2 + e^{-2V}\]
       where \(g\) is a Riemannian metric and \(V\) is a smooth function.
@@ -806,18 +900,18 @@
   </section>
 
   <section>
-    <h3 style="color: #7FAEBA; font-size: 1em;">The magnetic Lagrangian</h3>
+    <h3 style="color: #6c939e; font-size: 1em;">The magnetic Lagrangian</h3>
     <div style = "text-align: left; font-size: .8em;">
       \[L = g/2 + 1/2 - \eta\]
       where \(g\) is a Riemannian metric and \(\eta\) is a one-form.
           \[\mathrm{Ric}_{\mathrm{Vol}_g,N} = \mathrm{Ric}_g - \mathrm{div}_g\mathrm{Y} + \frac14|\mathrm{Y}|_g^2  + \frac12 \, g\circ \mathrm{Y} \qquad \text{ on } \qquad E^{-1}(0),\]
-      where \(\mathrm{Y}\) is defined by
+      where the <b>magnetic field</b> \(\mathrm{Y}\) is defined by
       \[\left\langle\mathrm{Y}v,w\right\rangle = d\eta(v,w), \qquad v,w \in T_xM, \, \, x \in M.\]
     </div>
   </section>
 
-  <section>
-    <h3 style="color: #7FAEBA; font-size: .85em">Main result: Displacement Convexity for Lagrangians</h3>
+  <section data-auto-animate>
+    <h3 style="color: #6c939e; font-size: .85em" data-id="mainresulttitle">Main result: Displacement Convexity for Lagrangians</h3>
     <div style="text-align: left; font-size: .8em;">
       <p><b>Theorem </b>(A. '25): Let \(N \in [n,\infty]\)&nbsp;. The following are equivalent:</p>
       <ul>
@@ -852,18 +946,39 @@
         \]
       </p>
       </div>
-    </div>
   </section>
 
+  <section data-auto-animate>
+    <h3 style="color: #6c939e; font-size: .85em" data-id:"mainresulttitle">Main result: Displacement Convexity for Lagrangians</h3>
+    <div style="text-align: left; font-size: .85em;">
+      <ul>
+        <li>Analogous results for \(\mathrm{CD}(K,N)\) &nbsp; with \(K \in \mathbb{R}\).</li>
+        <li class = "fragment">depends only on the dynamics on \(E^{-1}(0)\)</li>
+        <li class = "fragment">Characterization in terms of \(L^1\) optimal transport <span style="color: #6f97a1; font-size:.8em">(Cavalletti-Milman '16)</span></li>
+        <li class = "fragment">Consequences of curvature-dimension bounds:
+        <ul>
+          <li>Brunn-Minkowski</li>
+          <li>Prékopa–Leindler / Borell-Brascamp-Lieb</li>
+          <li>Bishop-Gromov</li>
+          <li>Bonnet-Myers</li>
+          <li>Isoperimetry</li>
+          <li>Poincaré / log-Sobolev</li>
+        </ul>
+        </li>
+        <li class="fragment">cf. <span style="color: #6f97a1">Lee '13, Ohta '14, Schachter '17, Yang '22</span>.</li>
+      </ul>
+    </div>
+  </section>  
+
   <section>
-    <h3 style="color: #7FAEBA; font-size: .9em">The Brunn-Minkowski inequality for Lagrangians</h3>
+    <h3 style="color: #6c939e; font-size: .9em">The Brunn-Minkowski inequality for Lagrangians</h3>
     <div style="text-align: left; font-size: .8em;">
       <p><b>Theorem </b>(A. '25):
-          Let \(N \in [n,\infty]\)&nbsp; , let \(A_0,A_1 \subseteq M\) &nbsp;  be Borel sets of positive measure and let \(0 \lt \lambda \lt 1 \)&nbsp; . Set
+          Let \(N \in [n,\infty]\)&nbsp; , let \(A_0,A_1 \subseteq M\) &nbsp;  be Borel sets of positive measure and let \(0 \le \lambda \le 1 \)&nbsp; . Set
           \[
           A_\lambda : = \left\{\gamma(\lambda \ell) \, \bigg\vert \, \begin{array}{c} \gamma:[0,\ell] \to M \, \,  \text{ is a minimizing extremal,} \\ \gamma(0) \in A_0, \, \,\gamma(\ell) \in A_1\end{array}\right\}.
           \]
-          If \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(E^{-1}(0)\)&nbsp; , then
+          If &nbsp; \(\mathrm{Ric}_{L,\mu,N} \ge 0\) &nbsp; on \(E^{-1}(0)\), then
           \[
               \mu(A_\lambda) \ge 
               \begin{cases}
@@ -876,15 +991,17 @@
   </section>
 
   <section>
-    <h2 style="color: #7FAEBA; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
+    <h2 style="color: #6c939e; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
       <div style="text-align: left; font-size: .7em;">
-      <p>Let \(\mathbb{C}\mathbf{H}^d\)&nbsp; denote the <b>complex hyperbolic space</b> of complex dimension \(d\)&nbsp;. 
+      <p>Let \(\mathbb{C}\mathbf{H}^d\)&nbsp; denote the <b>complex hyperbolic space</b> of complex dimension \(d\). 
       <br>  
-      A <b>horocycle</b> is a curve \(\gamma\)&nbsp; satisfying
+      A <b>horocycle</b> is a unit-speed curve \(\gamma\)&nbsp; satisfying
       \[
       \nabla_{\dot\gamma}\dot\gamma = \mathbf{J}\dot\gamma,
       \]
-      where \(\mathbf{J}\)&nbsp; is the complex structure. For every  \(x,y \in \mathbb{C}\mathbf{H}^d\)&nbsp; there exists a unique horocycle \(\gamma:[0,T]\to \mathbb{C}\mathbf{H}^d\)&nbsp; satisfying \(\gamma(0) = x\)&nbsp; and \(\gamma(T) = y\)&nbsp;; it is contained in the unique complex geodesic (totally-geodesic copy of the hyperbolic plane) containing \(x\)&nbsp; and \(y\)&nbsp;.</p>
+      where \(\mathbf{J}\)&nbsp; is the complex structure. 
+      
+      <p class = "fragment">For every  \(x,y \in \mathbb{C}\mathbf{H}^d\)&nbsp; there exists a unique horocycle \(\gamma:[0,T]\to \mathbb{C}\mathbf{H}^d\)&nbsp; satisfying \(\gamma(0) = x\)&nbsp; and \(\gamma(T) = y\)&nbsp;; it is contained in the unique complex geodesic (totally-geodesic copy of the hyperbolic plane) containing \(x\)&nbsp; and \(y\)&nbsp;.</p>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 60 800 320">
       <!-- teal horizontal line (intersects big circle) -->
@@ -905,32 +1022,22 @@
   </section>
 
   <section>
-    <h2 style="color: #7FAEBA; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
+    <h2 style="color: #6c939e; font-size: .9em">Example: horocyclic Brunn-Minkowski inequality</h2>
     <div style="text-align: left; font-size: .7em;">
       <p>
       <b>Theorem</b> (A.-Klartag '22, A. '25): &nbsp;
-      Let \(A_0,A_1 \subseteq \mathbb{C}\mathbf{H}^d\)&nbsp; be Borel sets of positive measure and let \(0\le\lambda\le 1\)&nbsp;. Denote by \(A_\lambda\)&nbsp; the set of points of the form \(\gamma(\lambda \ell)\)&nbsp;, where \(\gamma:[0,\ell]\to \mathbb{C}\mathbf{H}^d\)&nbsp; is a unit-speed horocycle satisfying \(\gamma(0) \in A_0\)&nbsp; and \(\gamma(\ell) \in A_1\)&nbsp;. 
+      Let \(A_0,A_1 \subseteq \mathbb{C}\mathbf{H}^d\)&nbsp; be Borel sets of positive measure and let \(0\le\lambda\le 1\)&nbsp;. Denote by \(A_\lambda\)&nbsp; the set of points of the form \(\gamma(\lambda \ell)\)&nbsp;, where \(\gamma:[0,\ell]\to \mathbb{C}\mathbf{H}^d\)&nbsp; is a horocycle satisfying \(\gamma(0) \in A_0\)&nbsp; and \(\gamma(\ell) \in A_1\)&nbsp;. 
       \[\implies \qquad 
       \mathrm{Vol}(A_\lambda)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A_0)^{1/n} + \lambda\cdot\mathrm{Vol}(A_1)^{1/n},
       \]
       where \(\mathrm{Vol}\)&nbsp; denotes the hyperbolic volume measure and \(n = 2d\)&nbsp;.</p>
       </div>
-      <img src="horosum_text.png" width = 600>
+      <img src="horosum_text.png" width = 700>
   </section>
 
-  <section style="
-    position: relative;
-    /* background: url('media/Hopf_Fibration.png') center/cover no-repeat; */
-    min-height: 400px;
-    background-size: contain;
-  ">
-    <div style="
-      position: relative;
-      z-index: 1;
-      font-size: .7em;
-      text-align: left;
-    ">
-    <h2 style="color: #7FAEBA; font-size: 1em;">Example: Brunn-Minkowski for contact magnetic geodesics</h2>
+  <section data-auto-animate>
+    <h2 style="color: #6c939e; font-size: .8em;" data-id="contacttitle">Example: Brunn-Minkowski for contact magnetic geodesics</h2>
+    <div style="text-align: left; font-size: .8em;">
     <p>
       Let \(S^{2d+1} = \{z \in \mathbb{C}^{d+1}\, \mid \, |z|=1\}\) &nbsp;&nbsp; and let \(0 \le s \lt 1\). &nbsp; We call <b>contact magnetic geodesics of strength \(s\)</b> the minimizing extremals of the Lagrangian
       \[L(v) : = \frac{|v|_g^2 + 1}{2} - s\cdot \eta(v),\]
@@ -942,22 +1049,39 @@
           <li class = "fragment"> Reeb trajectories  are contact magnetic geodesics of strength $s$ for all \(0 \le s \lt 1\).</li>
       </ul>
     </div>
-    <div style="
-      position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,0.8); /* white with 40% opacity */
-      z-index: 0;
-    "></div>
-
   </section>
 
-  <section>
+  <section data-auto-animate>
+  <h2 style="color: #6c939e; font-size: .8em;" data-id="contacttitle">Example: Brunn-Minkowski for contact magnetic geodesics</h2>
     <div style="text-align: left; font-size: .8em;">
       <p><b>Theorem</b></b> (A. '25):
       Let $A_0,A_1 \subseteq S^{2d+1}$&nbsp; be Borel sets of positive measure and let $0\le\lambda\le 1$&nbsp;. Denote by $A_\lambda$ the set of points of the form $\gamma(\lambda \ell)$, where $\gamma:[0,\ell]\to S^{2d+1}$ &nbsp; is a unit-speed contact magnetic geodesic of strength $s$ satisfying $\gamma(0) \in A_0$ and $\gamma(\ell) \in A_1$. Then
       $$\mathrm{Vol}(A_\lambda)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A_0)^{1/n} + \lambda\cdot\mathrm{Vol}(A_1)^{1/n},$$
       where $\mathrm{Vol}$ &nbsp; denotes the spherical volume measure and $n = 2d+1$.
       </p>
+  </section>
+
+  <section>
+    <h2 style="color: #6c939e; font-size: .9em">Key technical result: needle decomposition</h2>
+    <div style="text-align: left;font-size: .6em">
+    <p><b>Theorem</b> (A. '25):
+    Let \(N \in (-\infty,\infty]\setminus[0,n)\) &nbsp; and \(K \in \mathbb{R}\) &nbsp; and suppose that \(\mathrm{Ric}_{L,\mu,N} \ge K\). <br>Let \(f : M \to \mathbb{R}\) &nbsp be a \(\mu\)-intergrable function satisfying
+     \[\int_Mfd\mu = 0, \qquad \qquad  {\exists x_0\in M \quad \int_M\left(|\mathrm{c}(x_0,\cdot)| + |\mathrm{c}(\cdot,x_0)|\right)fd\mu < \infty.}\]    
+    \(\implies \, \exists\) Borel measures \(\{\mu_\alpha\}_{\alpha \in \mathscr{A}}\) &nbsp; and a measure \(\nu\) on \(\mathscr{A}\) such that:
+    </p>
+    <ul>
+        <li> For \(\nu\)-almost every \(\alpha \in \mathscr{A}\), either \(\mu_\alpha\) is a Dirac measure, or
+        \(\mu_\alpha = \left(\gamma_\alpha\right)_*m_\alpha\)&nbsp;
+        where \(m_\alpha\) is a measure on an interval \(I_\alpha \subseteq \mathbb{R}\) &nbsp; satisfying \(\mathrm{CD}({K},N)\) with respect to the Euclidean metric on \(\mathbb{R}\), and \(\gamma_\alpha : I_\alpha \to M\) &nbsp; is a minimizing extremal.</li>
+        <li> <b>Disintegration of measure</b>: The measure \(\mu\) disintegrates as 
+        \[\mu = \int_{\mathscr{A}}\mu_\alpha d\nu(\alpha).\]</li>
+        <li> <b>Mass Balance</b>: For \(\nu\)-almost every \(\alpha \in \mathscr{A}\),
+        \[
+            \int_Mfd\mu_\alpha = 0.
+        \]
+      </li>
+    </ul>
+  </div>
   </section>
 
   <section data-background-iframe="flowfinal.html" data-background-interactive>

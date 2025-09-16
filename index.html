@@ -77,6 +77,29 @@
     <p>Advisor: Prof. Bo'az Klartag</p>
   </section>
   
+  <section>
+    <h2 style = "color: #6c939e;">In this talk</h2>
+    <div style="text-align: left;">
+        <p><h2 style="color: #6c939e; font-size: .95em;">Background</h2>
+        <ul>
+          <li>The Brunn-Minkowski inequality </li>
+          <li>Lagrangians</li>
+          <li>Optimal transport</li>
+          <li>Ricci curvature</li>
+        </ul>
+      </p>
+      <p>
+      <h2 style="color: #6c939e; font-size: .95em;">Results</h2>
+        <ul>
+          <li>Displacement Convexity for Lagrangians</li>
+          <li>Horocyclic Brunn-Minkowski inequality</li>
+          <li>Brunn-Minkowski for contact magnetic geodesics</li>
+          <li>Needle decomposition</li>
+        </ul>
+      </p>
+    </div>
+  </section>
+
   <section data-background-color="#7FAEBA">
     <h2>Background</h2>
   </section>
@@ -109,7 +132,7 @@
   <section data-auto-animate>
     <h3 style="color: #6c939e" data-id="bmeq">The Brunn-Minkowski inequality</h3>
     <div style="text-align: left; font-size: .9em;">
-      <p><b>Theorem</b> (Brunn-Minkowski-Lusternik) :</p> For every \(A,B \subseteq \mathbb{R}^n\) &nbsp; Borel, nonempty and every \(0 \le \lambda \le 1\) &nbsp;,
+      <p><b>Theorem</b> (Brunn-Minkowski) :</p> For every \(A,B \subseteq \mathbb{R}^n\) &nbsp; Borel, nonempty and every \(0 \le \lambda \le 1\) &nbsp;,
       \[\mathrm{Vol}((1-\lambda) A + \lambda B)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A)^{1/n} + \lambda\cdot\mathrm{Vol}(B)^{1/n}.\]
     </div>
   <svg width="800" height="400" viewBox="0 40 800 400" xmlns="http://www.w3.org/2000/svg" class = "fragment">
@@ -395,7 +418,7 @@
         <p class = "fragment">Replace \( \mathrm{Vol} \) with \[ \mu = e^{-\psi}\mathrm{Vol}. \]</p>
         <ul>
           <li class = "fragment"> 
-            Measures \(\mu\) satisfying Brunn-Minkowski can be characterized in terms of the function \(\psi\) <span style="color: #6f97a1 ; font-size: .8em">(Borell '75, Brascamp-Lieb '76)
+            Measures \(\mu\) in \(\mathbb{R}^n\) satisfying Brunn-Minkowski can be characterized in terms of the function \(\psi\) <span style="color: #6f97a1 ; font-size: .8em">(Borell '75, Brascamp-Lieb '76)
           </li>
           <li class = "fragment">
             Bakry-Émery curvature-dimension <span style="color: #a1a1a1 ; font-size: .8em">(more on this later...)</span>
@@ -558,7 +581,8 @@
       \[\mathrm{A}(\gamma) : = \int_0^T L(\dot\gamma(t))dt.\]
     </p>
     <p class = "fragment">A <b> minimizing extremal </b> of \(L\) is a curve which minimizes the action \(\mathrm{A}\) among all curves with the same endpoints.</p>
-    </div>
+    <p class = "fragment"><b>Standard assumptions</b>: strongly convex, superlinear.</p>
+  </div>
   </section>
 
   <section>
@@ -567,7 +591,7 @@
     <ul>
       <li class = "fragment"> \(L = T - V\), where \(T\) is kinetic energy (i.e. quadratic in the velocity) and \(V\) is potential energy.
         <ul>
-          <li class = "fragment"><b>Riemannian metrics</b>: \(V = 0\).<br> action ~ length\(^2\), extremals = geodesics.</li>
+          <li class = "fragment"><b>Riemannian metrics</b>: \(V = 0\). Action = length\(^2\) <span style = "font-size: .9em; color:#a1a1a1;">(for unit-speed curves)</span>, extremals = geodesics.</li>
           <li class = "fragment"><b> Mechanical Lagrangians</b>: \(V\) is a potential depending only on position.</li>
         </ul>
       </li>
@@ -575,7 +599,8 @@
       <li class = "fragment"> <b>Finsler metrics</b>: 2-homogeneous in the velocity.</li>
       <li class = "fragment"> <b>Isotropic: &nbsp </b></f>\(\phi(F)\), where \(F\) is Riemannian/Finslerian.</li>
     </ul>
-    </div>
+  </div>
+
   </section>
 
   <section>
@@ -593,9 +618,10 @@
   </section>
 
   <section>
-    <div style="text-align: left;">
+    <div style="text-align: left; font-size: .9em;">
     <p>Given a smooth function \(u\) and a measure \(\mu\) with a smooth density on \(M\), we set
-    \[\nabla u : = \mathcal{L}du \qquad \text{ and } \qquad \mathbf{L} u : = \mathrm{div}_\mu(\nabla u).\]</p>
+    \[\nabla u : = \mathcal{L}du \qquad \text{ and } \qquad \mathbf{L} u : = \mathrm{div}_\mu(\nabla u)\]
+    (typically nonlinear in \(u\)).</p>
     <p style="color: #6f97a1; font-size: .95em;" class="fragment">🔮 With a Lagrangian and a reference measure, we have notions of gradient and Laplacian.</p>
     <p class = "fragment">The <b>Hamilton-Jacobi equation</b> is
     \[H(du) = 0.\]
@@ -603,47 +629,52 @@
     </div>
   </section>
 
-  <section data-background-iframe="electric.html" data-background-interactive>
-    <h3>The mechanical Lagrangian</h3>
-    <div style="position:relative; z-index:1;">
-    \[L(x,v) = \frac{|v|^2}{2} - V(x),\]
-    <br>
-    \(V\) - Scalar potential.
-    <br>
-    <br>
-    More generally:
-    \[ L = g/2 - V,\]
-    \(g\) &nbsp; - Riemannian metric and \(V\) &nbsp;- smooth function. 
+  <section data-background-iframe="electric.html" data-background-interactive data-auto-animate>
+    <h3 data-id="mechtitle">The mechanical Lagrangian</h3>
   </section>
 
-  <section data-background-iframe="nbody.html" data-background-interactive>
-    <h3 style="color: #6f97a1">The many-body Lagrangian</h3>
+  <section data-auto-animate>
+    <h3 data-id="mechtitle">The mechanical Lagrangian</h3>
+    <div style="position:relative; z-index:1;">
+    \[L(x,v) = \frac{|v|^2}{2} - V(x).\]
+    <p>More generally:
+    \[ L = g/2 - V,\]
+    where \(g\) is a Riemannian metric and \(V\) is a function. </p>
+    <p class = "fragment">
+    \[E(v) = |v|^2/2 + V(x), \qquad v \in T_xM, \,\, x \in M.\]
+    \[\nabla_{\dot\gamma}\dot\gamma = -\nabla V.\]</p>
+  </section>
+
+  <section data-background-iframe="nbody.html" data-background-interactive data-auto-animate>
+    <h3 style="color: #6f97a1" data-id="nbodytitle">The many-body Lagrangian</h3>
+  </section>
+
+  <section data-auto-animate>
+    <h3 style="color: #6f97a1"  data-id="nbodytitle">The many-body Lagrangian</h3>
     <div style="position:relative; z-index:1; font-size: .8em;">
       \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}.  \]
 
       
     \[L = \frac12\sum_{i=1}^km_i\sum_{\ell=1}^d(dx_i^\ell)^2 + \underbrace{\sum_{i=1}^k\sum_{j=i+1}^k\frac{Gm_im_j}{|x_i-x_j|}}_{U},\]
 
-    <br><br>
-
     \(G\) – gravitational constant, \(m_i\) – masses, <br>\(x_i = (x_i^1,\dots,x_i^d)\) &nbsp;  – position of the \(i\)-th body.
-<!-- 
-    <br><br>
-    \(\,\,\,\mathrm{Ric}_{\mathrm{Vol},\infty} = -\Delta U + U^{-1}|\nabla U|^2 - (2U)^{-2}(dU)^2 \ge 0.\) -->
     </div>
   </section>
 
-  <section data-background-iframe="magnetic.html" data-background-interactive>
-    <h3>The magnetic Lagrangian</h3>
+  <section data-background-iframe="magnetic.html" data-background-interactive data-auto-animate>
+    <h3 data-id="magtitle">The magnetic Lagrangian</h3>
+  </section>
+
+  <section data-auto-animate>
+    <h3 data-id="magtitle">The magnetic Lagrangian</h3>
     <div style="position:relative; z-index:1;">
     \[L(x,v) = \frac{|v|^2}{2} + A(x,v),\]
-    <br>
-    \(A\) - Magnetic field - Linear in \(v\).
-    <br>
-    <br>
-    More generally:
+    where \(A\) is a vector potential (linear in \(v\)). <span class = "fragment"> More generally:
     \[ L = g/2 + \eta\]
-    where \(g\) is a Riemannian metric and \(\eta\) is a one-form. 
+    where \(g\) is a Riemannian metric and \(\eta\) is a one-form. </span>
+    <p class = "fragment">
+    \[E(v) = |v|^2/2 , \qquad v \in T_xM, \,\, x \in M.\]
+    \[\nabla_{\dot\gamma}\dot\gamma = \mathrm{Y}v, \quad \text{where } \left\langle\mathrm{Y}\,\cdot\,, \,\cdot \, \right\rangle=d\eta.\]</p>
   </section>
 
 
@@ -693,7 +724,7 @@
         </td>
         <td>
           <div style="background:rgba(127,174,186,0.15);border-radius:30px;padding:.5em; text-align: center;">
-            not grow linearly along extremals.
+            not grow linearly along extremals
           </div>
         </td>
       </tr>
@@ -745,7 +776,8 @@
     </div>
   </section>
 
-  <section   style="position:relative; overflow:hidden;" data-background-iframe="GDI.html" data-background-interactive>
+  <section>
+  <!-- <section   style="position:relative; overflow:hidden;" data-background-iframe="GDI.html" data-background-interactive> -->
     🔮
     <div style="text-align: left; font-size: .9em; color: #6f97a1">
     <p>  We can solve OT for costs arising from reasonable Lagrangians.</p>
@@ -807,11 +839,8 @@
     <iframe data-src="flowhyp.html" width="100%" height="700" style="border:0;"></iframe>
   </section>
 
-  <section data-auto-animate>
+  <!-- <section data-auto-animate>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
-    <!-- <iframe src="GDI.html"
-          style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; z-index:-1; opacity:0.5; transform: scale(1.2); " >
-  </iframe> -->
     <div style="text-align: left; font-size: .65em;">
       <p><b>Theorem</b> <span style="color:#6c939e">(McCann '97, Cordero-Eruasquin-McCann-Schmuckenschläger '01, von Renesse-Sturm '05, Lott-Villani '07)</span>: Let \((M,g)\) &nbsp; be a complete Riemannian manifold. The following are equivalent:
         <ul>
@@ -824,24 +853,23 @@
       </p>
       <p style="color: #6c939e; font-size: 1" class="fragment"> 🔮 In nonnegative Ricci curvature, the intermediate measures in the displacement interpolation are more "spread out" than the measures at the endpoints. </p>
     </div>
-  </section>
+  </section> -->
 
   <section data-auto-animate>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
+    <div style="text-align: left; font-size: .9em;">
+    <p style="color: #6f97a1; font-size:.9em">McCann '97, Cordero-Eruasquin-McCann-Schmuckenschläger '01, von Renesse-Sturm '05, Lott-Villani '07:</p> \(\mathrm{Ric}_g \ge 0 \iff \) for every \(L^2\) displacement interpolation \(\mu_\lambda = f_\lambda\mathrm{Vol}_g\),
+      \[\mathrm{Ent}[\mu_\lambda|\mathrm{Vol}_g]:=\int f_\lambda d\mu_\lambda, \quad \text{is convex in } \lambda.\]
     <ul>
-      <li>Arbitrary lower Ricci curvature and upper dimension bounds; arbitrary reference measures (weighted Ricci curvature) <span style="color: #6f97a1 ; font-size: .8em">(C-M-S '01, von Renesse-Sturm '05, Lott-Villani '07)</span>.</li>
+      <li class = "fragment">Arbitrary lower Ricci curvature and upper dimension bounds; arbitrary reference measures (weighted Ricci curvature) <span style="color: #6f97a1 ; font-size: .8em">(C-M-S '01, von Renesse-Sturm '05, Lott-Villani '07)</span>.</li>
       <li class = "fragment">Synthetic curvature-dimension bounds for mms's via optimal transport<span style="color: #6f97a1 ; font-size: .8em"> (Sturm '06, Lott-Villani '07)</span>.</li>
-      <li style="opacity: 0;"><b>Application of optimal transport to prove geometric inequalities:</b> Brunn-Minkowski / Prékopa–Leindler / Borell-Brascamp-Lieb, functional inequalities, volume growth estimates, topological implications, heat semigroup estimates...</li>
     </ul>
+  </div>
   </section>
 
   <section data-auto-animate data-background-image="SphMsum2_color_cropped.png"  data-background-size="1000pt" data-background-position="bottom" data-background-opacity=".3">
     <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
-    <ul>
-      <li>Arbitrary lower Ricci curvature and upper dimension bounds; arbitrary reference measures (weighted Ricci curvature) <span style="color: #6f97a1 ; font-size: .8em">(C-M-S '01, von Renesse-Sturm '05, Lott-Villani '07)</span>.</li>
-      <li>Synthetic curvature-dimension bounds for mms's via optimal transport<span style="color: #6f97a1 ; font-size: .8em"> (Sturm '06, Lott-Villani '07)</span>.</li>
-      <li><b>Application of optimal transport to prove geometric inequalities:</b> Brunn-Minkowski / Prékopa–Leindler / Borell-Brascamp-Lieb, functional inequalities, volume growth estimates, topological implications, heat semigroup estimates...</li>
-    </ul>
+    <b>Application of optimal transport to prove geometric inequalities:</b> Brunn-Minkowski / Prékopa–Leindler / Borell-Brascamp-Lieb, functional inequalities, volume growth estimates, topological implications, heat semigroup estimates...
   </section>
 
   <section data-auto-animate>
@@ -850,8 +878,7 @@
       <p>\(L^1\) localization (needle decomposition):</p>
       <ul>
         <li class = "fragment"><span style="color: #6f97a1">Evans-Gangbo '00, Caffarelli-Feldman-McCann '01, Feldman-McCann '02</span> - The solution to the Monge-Kantorovich problem with cost <b>d</b> provides a disintegration of the manifold into disjoint 1d measures ("needles").</li>
-        <li class = "fragment"><span style="color: #6f97a1">Klartag '14</span> - this can be used to reduce geometric inequalities on weighted Riemannian manifolds to their 1d analogues <span style="color: #6f97a1; font-size: .8em;">(Gromov-Milman '87, Lovasz-Simonovits '93)</span>.</li>
-        <li class = "fragment">Curvature-dimension bounds descend to the needles.</li>
+        <li class = "fragment"><span style="color: #6f97a1">Klartag '14</span> - together with CD bounds, this can be used to prove geometric inequalities on weighted Riemannian manifolds <span style="color: #6f97a1; font-size: .8em;">(Gromov-Milman '87, Lovasz-Simonovits '93)</span>.</li>
         <li class = "fragment">Finsler <span style="color: #6f97a1 ; font-size: .8em">(Ohta '15)</span>, mms <span style="color: #6f97a1 ; font-size: .8em">(Cavalletti-Mondino '15)</span>, Sub-Riemannian <span style="color: #6f97a1 ; font-size: .8em">(Milman '19)</span>, Lorentzian <span style="color: #6f97a1 ; font-size: .8em">(Braun-McCann '23, Cavalletti-Mondino '24).</span></li>
       </ul>
     </div>

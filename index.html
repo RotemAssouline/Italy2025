@@ -573,15 +573,14 @@
   <section>
     <div style="text-align: left;">
     <p>
-      A <b> Lagrangian </b> \(L\) on a manifold \(M\) is a smooth function on the tangent bundle \(TM\). 
+      A <b> Lagrangian </b> \(L\) on a manifold \(M\) is a smooth function on the tangent bundle \(TM\). <span style="color: #a1a1a1;" class = "fragment">(strongly convex, superlinear)</span>
     </p>
     <p style="color: #6f97a1; font-size: .95em;" class="fragment">🔮 A Lagrangian assigns a value to each position and velocity.</p>
     <p class = "fragment">
       The <b> action </b> of a curve \(\gamma:[0,T]\to M \) &nbsp is:
       \[\mathrm{A}(\gamma) : = \int_0^T L(\dot\gamma(t))dt.\]
     </p>
-    <p class = "fragment">A <b> minimizing extremal </b> of \(L\) is a curve which minimizes the action \(\mathrm{A}\) among all curves with the same endpoints.</p>
-    <p class = "fragment"><b>Standard assumptions</b>: strongly convex, superlinear.</p>
+    <p class = "fragment">A <b> minimizing extremal </b> of \(L\) is a curve which minimizes the action \(\mathrm{A}\) among all curves with the same endpoints. Extremals are solutions to the <b>Euler-Lagrange</b> equation.</p>
   </div>
   </section>
 
@@ -600,34 +599,8 @@
       <li class = "fragment"> <b>Isotropic: &nbsp </b></f>\(\phi(F)\), where \(F\) is Riemannian/Finslerian.</li>
     </ul>
   </div>
-
   </section>
 
-  <section>
-    <div style="text-align: left; font-size: .9em;">
-      <p>The <b> Hamiltonian </b> is Fenchel conjugate of the Lagrangian:
-      \[H(p) : = \sup_{v \in T_xM}p(v) - L(v), \quad p\in T^*_xM,\,\,x \in M.\]</p>
-      <p class = "fragment">The supremum is achieved at \(\mathcal{L}p\), where \(\mathcal{L} : T^*M \to TM\) &nbsp; is the <b> Legendre transform </b> associated to \(L\).</p>
-
-      <p class = "fragment">A curve is an extremal if and only if it is the projection to \(M\) of an integral curve of the <b>Hamiltonian flow</b> \(\Phi^H\) &nbsp; on \(T^*M\).</p>
-
-      <p  class = "fragment">The <b> energy </b> is the function \(E : = H \circ \mathcal{L}^{-1}\) &nbsp on \(TM\). If \(\gamma\) is a minimizing extremal then \(E(\dot\gamma)\equiv 0\) &nbsp;.</p>
-      <p style="color: #6f97a1; font-size: .95em;" class="fragment">🔮 A Lagrangian gives rise to notions of energy and momentum; energy is conserved along extremals.</p>
-    </div>
-    
-  </section>
-
-  <section>
-    <div style="text-align: left; font-size: .9em;">
-    <p>Given a smooth function \(u\) and a measure \(\mu\) with a smooth density on \(M\), we set
-    \[\nabla u : = \mathcal{L}du \qquad \text{ and } \qquad \mathbf{L} u : = \mathrm{div}_\mu(\nabla u)\]
-    (typically nonlinear in \(u\)).</p>
-    <p style="color: #6f97a1; font-size: .95em;" class="fragment">🔮 With a Lagrangian and a reference measure, we have notions of gradient and Laplacian.</p>
-    <p class = "fragment">The <b>Hamilton-Jacobi equation</b> is
-    \[H(du) = 0.\]
-    If \(u\) is a \(C^2\) solution to the H-J equation, then the integral curves of \(\nabla u\) are zero-energy extremals.</p>
-    </div>
-  </section>
 
   <section data-auto-animate>
     <h3 data-id="mechtitle">The mechanical Lagrangian</h3>
@@ -675,6 +648,32 @@
 
   <section data-background-iframe="magnetic.html" data-background-interactive data-auto-animate>
     <h3 data-id="magtitle">The magnetic Lagrangian</h3>
+  </section>
+
+<section>
+    <div style="text-align: left; font-size: .9em;">
+      <p>The <b> Hamiltonian </b> is Fenchel conjugate of the Lagrangian:
+      \[H(p) : = \sup_{v \in T_xM}p(v) - L(v), \quad p\in T^*_xM,\,\,x \in M.\]</p>
+      <p class = "fragment">The supremum is achieved at \(\mathcal{L}p\), where \(\mathcal{L} : T^*M \to TM\) &nbsp; is the <b> Legendre transform </b> associated to \(L\).</p>
+
+      <p class = "fragment">A curve is an extremal if and only if it is the projection to \(M\) of an integral curve of the <b>Hamiltonian flow</b> \(\Phi^H\) &nbsp; on \(T^*M\).</p>
+
+      <p  class = "fragment">The <b> energy </b> is the function \(E : = H \circ \mathcal{L}^{-1}\) &nbsp on \(TM\). If \(\gamma\) is a minimizing extremal then \(E(\dot\gamma)\equiv 0\) &nbsp;.</p>
+      <p style="color: #6f97a1; font-size: .95em;" class="fragment">🔮 A Lagrangian gives rise to notions of energy and momentum; energy is conserved along extremals.</p>
+    </div>
+    
+  </section>
+
+  <section>
+    <div style="text-align: left; font-size: .9em;">
+    <p>Given a smooth function \(u\) and a measure \(\mu\) with a smooth density on \(M\), we set
+    \[\nabla u : = \mathcal{L}du \qquad \text{ and } \qquad \mathbf{L} u : = \mathrm{div}_\mu(\nabla u)\]
+    (typically nonlinear in \(u\)).</p>
+    <p style="color: #6f97a1; font-size: .95em;" class="fragment">🔮 With a Lagrangian and a reference measure, we have notions of gradient and Laplacian.</p>
+    <p class = "fragment">The <b>Hamilton-Jacobi equation</b> is
+    \[H(du) = 0.\]
+    If \(u\) is a \(C^2\) solution to the H-J equation, then the integral curves of \(\nabla u\) are zero-energy extremals.</p>
+    </div>
   </section>
 
 
@@ -769,7 +768,7 @@
             <li class = "fragment"> Each \(T_\lambda\) is an optimal transport map from \(\mu_0\) &nbsp to \[\mu_\lambda : = (T_\lambda)_*\mu_0.\] </li>
             <li class = "fragment"> \(\mu_0\)-a.e. curve \(\lambda\mapsto T_\lambda(x)\) &nbsp is a minimizing extremal.</li>
             <li class = "fragment"> There exists a viscosity subsolution \(u\) to the Hamilton-Jacobi equation, and \(\ell : M \to [0,\infty)\) &nbsp such that
-                \[T_\lambda = \pi\circ\Phi_{\lambda\ell}\circ du \qquad \text{\(\mu_0\) -a.e.}\]
+                \[T_\lambda = \pi\circ\Phi_{\lambda\ell}^H\circ du \qquad \text{\(\mu_0\) -a.e.}\]
             </li>
           </ul>
       <p class="fragment">The family \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of probability measures is called a <b>displacement interpolation</b> between \(\mu_0\) and \(\mu_1\).</p>
@@ -858,13 +857,18 @@
   <section data-auto-animate>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
     <div style="text-align: left; font-size: .9em;">
-    <p style="color: #6f97a1; font-size:.9em">McCann '97, Cordero-Eruasquin-McCann-Schmuckenschläger '01, von Renesse-Sturm '05, Lott-Villani '07:</p> \(\mathrm{Ric}_g \ge 0 \iff \) for every \(L^2\) displacement interpolation \(\mu_\lambda = f_\lambda\mathrm{Vol}_g\),
+    <p style="color: #6f97a1; font-size:.9em">McCann '97, Cordero-Eruasquin-McCann-Schmuckenschläger '01, von Renesse-Sturm '05, Lott-Villani '07:</p> \(\mathrm{Ric}_g \ge 0 \iff \) <b>displacement convexity</b>: for every \(L^2\) displacement interpolation \(\mu_\lambda = f_\lambda\mathrm{Vol}_g\),
       \[\mathrm{Ent}[\mu_\lambda|\mathrm{Vol}_g]:=\int f_\lambda d\mu_\lambda, \quad \text{is convex in } \lambda.\]
     <ul>
       <li class = "fragment">Arbitrary lower Ricci curvature and upper dimension bounds; arbitrary reference measures (weighted Ricci curvature) <span style="color: #6f97a1 ; font-size: .8em">(C-M-S '01, von Renesse-Sturm '05, Lott-Villani '07)</span>.</li>
       <li class = "fragment">Synthetic curvature-dimension bounds for mms's via optimal transport<span style="color: #6f97a1 ; font-size: .8em"> (Sturm '06, Lott-Villani '07)</span>.</li>
     </ul>
   </div>
+  </section>
+
+  <section data-auto-animate data-background-iframe="GDI.html" data-background-opacity=.5>
+    <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
+    <p style="color: #6f97a1; font-size: .9em"> 🔮 In nonnegative Ricci curvature, the interpolating measures in the displacement interpolation (with squared distance cost) are more "spread out" than the measures at the endpoints. </p>
   </section>
 
   <section data-auto-animate data-background-image="SphMsum2_color_cropped.png"  data-background-size="800pt" data-background-position="bottom" data-background-opacity=".2">
@@ -969,7 +973,7 @@
       <ul>
         <li>Analogous results for \(\mathrm{CD}(K,N)\) &nbsp; with \(K \in \mathbb{R}\).</li>
         <li class = "fragment">depends only on the dynamics on \(E^{-1}(0)\).</li>
-        <li class = "fragment">Curvature-dimension in terms of \(\boxed{L^1}\) displacement convexity <span style="color: #6f97a1; font-size:.8em">(Cavalletti-Milman '16)</span>.</li>
+        <li class = "fragment">Autonomous Lagrangian, unrestricted time interval \(\rightarrow\) extends <span style="color:#6c939e">\(L^1\)</span> displacement convexity <span style="color: #6f97a1; font-size:.8em">(Cavalletti-Milman '16)</span>.</li>
         <li class = "fragment">Consequences of curvature-dimension bounds:
         <ul>
           <li>Brunn-Minkowski</li>
@@ -1002,7 +1006,7 @@
     <div style = "text-align: left; font-size: .8em;">
       \[L = g/2 + 1/2 - \eta\]
       where \(g\) is a Riemannian metric and \(\eta\) is a one-form.
-          \[\mathrm{Ric}_{\mathrm{Vol}_g,N} = \mathrm{Ric}_g - \mathrm{div}_g\mathrm{Y} + \frac14|\mathrm{Y}|_g^2  + \frac12 \, g\circ \mathrm{Y} \qquad \text{ on } \qquad E^{-1}(0),\]
+          \[\mathrm{Ric}_{L,\mathrm{Vol}_g,N} = \mathrm{Ric}_g - \mathrm{div}_g\mathrm{Y} + \frac14|\mathrm{Y}|_g^2  + \frac12 \, g\circ \mathrm{Y} \qquad \text{ on } \qquad E^{-1}(0),\]
       where the <b>magnetic field</b> \(\mathrm{Y}\) is defined by
       \[\left\langle\mathrm{Y}v,w\right\rangle = d\eta(v,w), \qquad v,w \in T_xM, \, \, x \in M.\]
     </div>
@@ -1123,7 +1127,11 @@
   </div>
   </section>
 
-  <section>
+  <section data-background-iframe="flowfinal.html" data-background-interactive>
+    <h2 style="font-size: 2.5em; font-weight: 1000;">Thank you!</h2>
+  </section>
+
+<section>
     <h2 style="color: #6c939e; font-size: .9em">Sketch of proof</h2>
     <div style="text-align: left; font-size: .6em;">
         <p>
@@ -1258,11 +1266,6 @@
     </div>
 </section>
 
-
-
-  <section data-background-iframe="flowfinal.html" data-background-interactive>
-    <h2 style="font-size: 2.5em; font-weight: 1000;">Thank you!</h2>
-  </section>
 
 
 </div></div>

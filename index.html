@@ -244,7 +244,7 @@
   <script type="text/javascript">
     <![CDATA[
     // Animation parameters
-    const animationDuration = 4000; // 4 seconds in milliseconds
+    const animationDuration = 8000; // 4 seconds in milliseconds
     let startTime = Date.now();
     
     // Get references to animated elements
@@ -605,7 +605,7 @@
 
   <section>
     <div style="text-align: left; font-size: .9em;">
-      <p>The <b> Hamiltonian </b> is the function
+      <p>The <b> Hamiltonian </b> is Fenchel conjugate of the Lagrangian:
       \[H(p) : = \sup_{v \in T_xM}p(v) - L(v), \quad p\in T^*_xM,\,\,x \in M.\]</p>
       <p class = "fragment">The supremum is achieved at \(\mathcal{L}p\), where \(\mathcal{L} : T^*M \to TM\) &nbsp; is the <b> Legendre transform </b> associated to \(L\).</p>
 
@@ -625,12 +625,8 @@
     <p style="color: #6f97a1; font-size: .95em;" class="fragment">🔮 With a Lagrangian and a reference measure, we have notions of gradient and Laplacian.</p>
     <p class = "fragment">The <b>Hamilton-Jacobi equation</b> is
     \[H(du) = 0.\]
-    If \(u\) is a solution to the H-J equation, then the integral curves of \(\nabla u\) are zero-energy extremals.</p>
+    If \(u\) is a \(C^2\) solution to the H-J equation, then the integral curves of \(\nabla u\) are zero-energy extremals.</p>
     </div>
-  </section>
-
-  <section data-background-iframe="electric.html" data-background-interactive data-auto-animate>
-    <h3 data-id="mechtitle">The mechanical Lagrangian</h3>
   </section>
 
   <section data-auto-animate>
@@ -645,8 +641,8 @@
     \[\nabla_{\dot\gamma}\dot\gamma = -\nabla V.\]</p>
   </section>
 
-  <section data-background-iframe="nbody.html" data-background-interactive data-auto-animate>
-    <h3 style="color: #6f97a1" data-id="nbodytitle">The many-body Lagrangian</h3>
+    <section data-background-iframe="electric.html" data-background-interactive data-auto-animate>
+    <h3 data-id="mechtitle">The mechanical Lagrangian</h3>
   </section>
 
   <section data-auto-animate>
@@ -661,8 +657,8 @@
     </div>
   </section>
 
-  <section data-background-iframe="magnetic.html" data-background-interactive data-auto-animate>
-    <h3 data-id="magtitle">The magnetic Lagrangian</h3>
+  <section data-background-iframe="nbody.html" data-background-interactive data-auto-animate>
+    <h3 style="color: #6f97a1" data-id="nbodytitle">The many-body Lagrangian</h3>
   </section>
 
   <section data-auto-animate>
@@ -675,6 +671,10 @@
     <p class = "fragment">
     \[E(v) = |v|^2/2 , \qquad v \in T_xM, \,\, x \in M.\]
     \[\nabla_{\dot\gamma}\dot\gamma = \mathrm{Y}v, \quad \text{where } \left\langle\mathrm{Y}\,\cdot\,, \,\cdot \, \right\rangle=d\eta.\]</p>
+  </section>
+
+  <section data-background-iframe="magnetic.html" data-background-interactive data-auto-animate>
+    <h3 data-id="magtitle">The magnetic Lagrangian</h3>
   </section>
 
 
@@ -819,10 +819,10 @@
     <p style="color: #6f97a1; font-size: 1" class="fragment"> 🔮 If we take a small object and let it flow along "parallel" geodesics in the direction \(v\), then the second (logarithmic) derivative of the object's volume will be roughly \(-\mathrm{Ric}(v)\)&nbsp. </p>
     </div>
   </section>
-
+<!-- 
   <section>
     <iframe data-src="flow1.html" width="100%" height="700" style="border:0;"></iframe>
-  </section>
+  </section> -->
 
   <section>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp 0: &nbsp The Euclidean plane</h3>
@@ -867,7 +867,7 @@
   </div>
   </section>
 
-  <section data-auto-animate data-background-image="SphMsum2_color_cropped.png"  data-background-size="1000pt" data-background-position="bottom" data-background-opacity=".3">
+  <section data-auto-animate data-background-image="SphMsum2_color_cropped.png"  data-background-size="800pt" data-background-position="bottom" data-background-opacity=".2">
     <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
     <b>Application of optimal transport to prove geometric inequalities:</b> Brunn-Minkowski / Prékopa–Leindler / Borell-Brascamp-Lieb, functional inequalities, volume growth estimates, topological implications, heat semigroup estimates...
   </section>
@@ -900,7 +900,7 @@
           <li> Fiberwise strongly convex and superlinear </li>
           <li> Supercritical (i.e. closed curves have positive action) </li>
         </ul>
-        <div  class = "fragment">And such that:
+        <div  class = "fragment">and such that:
         <ul>
           <li>Every pair of points can be joined by a minimizing extremal. </li>
           <li>For every compact set \(A\) there exists a compact set \(A'\) such that all minimizing extremals with endpoints in \(A\) are contained in \(A'\). </li>
@@ -925,28 +925,7 @@
     </div>
   </section>
 
-  <section>
-    <h3 style="color: #6c939e; font-size: 1em;">The mechanical Lagrangian</h3>
-    <div style = "text-align: left; font-size: .8em;">
-      \[L = g/2 + 1/2 + e^{-2V}\]
-      where \(g\) is a Riemannian metric and \(V\) is a smooth function.
-      \[ \mathrm{Ric}_{L,\mathrm{Vol}_g,N} = \mathrm{Ric}_g  + \Delta V\cdot g -\left(1+\frac{1}{N-n}\right)\cdot (dV)^2 \qquad \text{ on } E^{-1}(0).\]
-      <p class = "fragment">For the many-body Lagrangian, \(\mathrm{Ric}_{L,\mathrm{Vol},\infty} \ge 0\).</p>
-    </div>
-  </section>
-
-  <section>
-    <h3 style="color: #6c939e; font-size: 1em;">The magnetic Lagrangian</h3>
-    <div style = "text-align: left; font-size: .8em;">
-      \[L = g/2 + 1/2 - \eta\]
-      where \(g\) is a Riemannian metric and \(\eta\) is a one-form.
-          \[\mathrm{Ric}_{\mathrm{Vol}_g,N} = \mathrm{Ric}_g - \mathrm{div}_g\mathrm{Y} + \frac14|\mathrm{Y}|_g^2  + \frac12 \, g\circ \mathrm{Y} \qquad \text{ on } \qquad E^{-1}(0),\]
-      where the <b>magnetic field</b> \(\mathrm{Y}\) is defined by
-      \[\left\langle\mathrm{Y}v,w\right\rangle = d\eta(v,w), \qquad v,w \in T_xM, \, \, x \in M.\]
-    </div>
-  </section>
-
-  <section data-auto-animate>
+<section data-auto-animate>
     <h3 style="color: #6c939e; font-size: .85em" data-id="mainresulttitle">Main result: Displacement Convexity for Lagrangians</h3>
     <div style="text-align: left; font-size: .8em;">
       <p><b>Theorem </b>(A. '25): Let \(N \in [n,\infty]\)&nbsp;. The following are equivalent:</p>
@@ -956,22 +935,22 @@
           \[
             (d\mathbf{L}u)(\nabla u) + \frac{(\mathbf{L}u)^2}{N-1} \le 0.
           \]
-        <li class = "fragment"> For every \(\mu_0,\mu_1\in\mathcal{P}_1(L)\) &nbsp; there exists a displacement interpolation \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\)&nbsp; between \(\mu_0\) and \(\mu_1\) such that the function
+        <li class = "fragment"> \(\forall \mu_0,\mu_1\in\mathcal{P}_1(L)\) &nbsp; there exists a displacement interpolation \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\)&nbsp; between \(\mu_0\) and \(\mu_1\) such that
           \(
-          \lambda \mapsto \mathrm{S}_{N}[\mu_\lambda|\mu]
+          \mathrm{S}_{N}[\mu_\lambda|\mu]
           \)
-          is convex.
+          is convex in \(\lambda\).
         </li>
       </ul>
       <div class = "fragment">
-      <p style="color: #6c939e; font-size: .8em">
+      <p style="font-size: .85em">
         \[
         \mathrm{S}_N[\mu_0|\mu] := -\int_M f_0^{-1/N} \, d\mu_0 
         \quad (1 \lt N \lt \infty) \quad \text{and} \quad 
         \mathrm{S}_{\infty}[\mu_0|\mu] := \int_M \log f_0 \, d\mu_0.
         \]
       </p>
-      <p style="color:#888; font-size: .7em">
+      <p style="color:#888; font-size: .65em">
         \[
         \mathcal{P}_1(L):= \left\{
         \begin{array}{c}
@@ -990,7 +969,7 @@
       <ul>
         <li>Analogous results for \(\mathrm{CD}(K,N)\) &nbsp; with \(K \in \mathbb{R}\).</li>
         <li class = "fragment">depends only on the dynamics on \(E^{-1}(0)\).</li>
-        <li class = "fragment">Characterization in terms of \(L^1\) optimal transport <span style="color: #6f97a1; font-size:.8em">(Cavalletti-Milman '16)</span>.</li>
+        <li class = "fragment">Curvature-dimension in terms of \(\boxed{L^1}\) displacement convexity <span style="color: #6f97a1; font-size:.8em">(Cavalletti-Milman '16)</span>.</li>
         <li class = "fragment">Consequences of curvature-dimension bounds:
         <ul>
           <li>Brunn-Minkowski</li>
@@ -1005,6 +984,30 @@
       </ul>
     </div>
   </section>  
+
+  <section>
+    <h3 style="color: #6c939e; font-size: 1em;">The mechanical Lagrangian</h3>
+    <div style = "text-align: left; font-size: .8em;">
+      \[L = g/2 - U\]
+      where \(g\) is a Riemannian metric and \(U\) is a smooth negative function.
+      \[ \mathrm{Ric}_{L,\mathrm{Vol}_g,N} = \mathrm{Ric}_g  + \Delta V\cdot g -\left(1+\frac{1}{N-n}\right)\cdot (dV)^2 \qquad \text{ on } E^{-1}(0),\]
+      where
+      \[V : = \frac12\log(-U).\]
+      <p class = "fragment">For the many-body Lagrangian, \(\mathrm{Ric}_{L,\mathrm{Vol},\infty} \ge 0\).</p>
+    </div>
+  </section>
+
+  <section>
+    <h3 style="color: #6c939e; font-size: 1em;">The magnetic Lagrangian</h3>
+    <div style = "text-align: left; font-size: .8em;">
+      \[L = g/2 + 1/2 - \eta\]
+      where \(g\) is a Riemannian metric and \(\eta\) is a one-form.
+          \[\mathrm{Ric}_{\mathrm{Vol}_g,N} = \mathrm{Ric}_g - \mathrm{div}_g\mathrm{Y} + \frac14|\mathrm{Y}|_g^2  + \frac12 \, g\circ \mathrm{Y} \qquad \text{ on } \qquad E^{-1}(0),\]
+      where the <b>magnetic field</b> \(\mathrm{Y}\) is defined by
+      \[\left\langle\mathrm{Y}v,w\right\rangle = d\eta(v,w), \qquad v,w \in T_xM, \, \, x \in M.\]
+    </div>
+  </section>
+
 
   <section>
     <h3 style="color: #6c939e; font-size: .9em">The Brunn-Minkowski inequality for Lagrangians</h3>
@@ -1119,6 +1122,143 @@
     </ul>
   </div>
   </section>
+
+  <section>
+    <h2 style="color: #6c939e; font-size: .9em">Sketch of proof</h2>
+    <div style="text-align: left; font-size: .6em;">
+        <p>
+            <u>Part I</u>: \(L^1\) optimal transport <span style="color: #6f97a1">(Evans-Gangbo '99, Feldman-McCann '02, Caffarelli- Feldman-McCann '02. <i>Also</i>: Bernard-Buffoni '06, Figalli '07, Fathi-Figalli '10)</span>. Let \(u : M \to \mathbb{R}\) satisfy
+        </p>
+        \[
+            \int_M fu\, d\mu = \inf\left\{\int_M fv \, d\mu \quad \Big\vert \quad v : M \to \mathbb{R}, \,\, H(dv) \le 0\right\}.
+        \]
+        <p>
+            A <em>transport ray</em> of \(u\) is a maximal curve \(\gamma : I \to \mathbb{R}\) with the properties
+        </p>
+        \[
+            \dot\gamma \equiv \nabla u \qquad \text{ and } \qquad E(\dot\gamma) \equiv 0.
+        \]
+        <p>
+            Note that in this case 
+        </p>
+        \[
+            H(du\vert_{\gamma(t)}) = E(\nabla u\vert_{\gamma(t)}) = E(\dot\gamma(t)) = 0 \qquad \text{ for all $t \in I$.}
+        \]
+        <p>
+            If \(x\) is not contained in such a curve then we say that \(\{x\}\) is a (degenerate) transport ray. 
+        </p>
+    
+        <p>
+            For every Borel set \(A\subseteq M\) which is a union of transport rays,
+        </p>
+        \[
+            \int_A  f \,d\mu = 0 \qquad \text{(Mass balance)}.
+        \]
+    </div>
+</section>
+
+<section>
+    <h2 style="color: #6c939e; font-size: .9em">Sketch of proof</h2>
+    <div style="text-align: left; font-size: .6em;">
+        <p>
+            Let \(\{\gamma_\alpha:I_\alpha \to M\}_{\alpha\in\mathscr{A}}\) be the collection of transport rays. Make a change of variables:
+        </p>
+        \[
+            \begin{aligned}
+                \mathscr{A}\times\mathbb{R} &\to M\\
+                (\alpha,t) &\mapsto \gamma_\alpha(t).
+            \end{aligned}
+        \]
+        <p>
+            For every smooth \(\phi : M \to \mathbb{R}\),
+        </p>
+        \[
+            \int_M\phi\,d\mu = \int_{\mathscr{A}}\int_{I_\alpha}\phi(\gamma_\alpha(t))\rho(\alpha,t)dt\,d\alpha.
+        \]
+        <p>
+            How do we determine the ``Jacobian'' \(\rho\)? since we have freedom in choosing the measure on \(\mathscr{A}\), we only need to determine \(\rho\) up to a multiplicative constant depending on \(\alpha\). Thus it suffices to determine
+        </p>
+        \[
+            \partial_t\log\rho.
+        \]
+        <p>
+            But in this coordinate chart \(\partial/\partial t = \dot\gamma_\alpha = \nabla u\), so
+        </p>
+        \[
+            \partial_t\log\rho = \mathrm{div}_\mu(\partial / \partial t) = \mathrm{div}_\mu(\nabla u ) = \mathbf{L} u.
+        \]
+    </div>
+</section>
+
+<section>
+    <h2 style="color: #6c939e; font-size: .9em">Sketch of proof</h2>
+    <div style="text-align: left; font-size: .6em;">
+        <p>
+            For every \(\alpha \in \mathscr{A}\) Define a measure \(m_\alpha\) on the interval \(I_\alpha\) by
+        </p>
+        \[
+            dm_\alpha(t) = e^{-\psi_\alpha(t)}dt, \qquad \text{ where } \qquad \frac{d\psi_\alpha}{dt} = -\mathbf{L} u \circ\gamma_\alpha.
+        \]
+        <p>
+            Define a needle \(\mu_\alpha\) by
+        </p>
+        \[
+            \mu_\alpha = (\gamma_\alpha)_* m_\alpha.
+        \]
+        <p>
+            Then for every smooth \(\phi : M \to \mathbb{R}\),
+        </p>
+        \[
+            \begin{aligned}
+                \int_M\phi\,d\mu & = \int_{\mathscr{A}}\int_{I_\alpha}\phi(\gamma_\alpha(t))e^{-\psi_\alpha(t)}dt\,d\nu(\alpha)\\
+                & = \int_{\mathscr{A}}\int\phi d\mu_\alpha\,d\nu(\alpha).
+            \end{aligned}
+        \]
+        <p>
+            By mass balance, for \(\nu\)-almost every \(\alpha \in \mathscr{A}\),
+        </p>
+        \[
+            \int f\, d\mu_\alpha = 0.
+        \]
+    </div>
+</section>
+
+<section>
+    <h2 style="color: #6c939e; font-size: .9em">Sketch of proof</h2>
+    <div style="text-align: left; font-size: .6em;">
+        <p>
+            <u>Part II:</u> It remains to show that \(\nu\)-a.e needle \(\mu_\alpha\) satisfies \(\mathrm{CD}(K,N)\). Assume for simplicity \(K=0,N=\infty,\mu = \mathrm{Vol}_g\) and recall
+        </p>
+        \[
+            \mu_\alpha = (\gamma_\alpha)_*m_\alpha, \qquad dm_\alpha(t) = e^{-\psi_\alpha(t)}dt, \qquad \dot\psi_\alpha  = - \mathbf{L} u\circ\gamma_\alpha.
+        \]
+        
+        <p>
+            We need to prove that \(\ddot \psi_\alpha \ge 0\). 
+        </p>
+
+        <p>
+            Since \(H(du) = 0\) on nondegenerate transport rays, <em>in some sense, \(u\) solves the Hamilton-Jacobi equation \(H(du) = 0\) on the set of nondegenerate transport rays</em>.
+        </p>
+        <p>
+            Therefore, by the Bochner inequality, loosely speaking, on the set of nondegenerate transport rays 
+        </p>
+        \[
+            (d\mathbf{L} u)(\nabla u) \le 0.
+        \]
+        <p>
+            Hence
+        </p>
+        \[
+            \ddot\psi_\alpha = \frac{d}{dt}\left(-\mathbf{L} u\circ\gamma_\alpha\right) = -(d\mathbf{L} u)(\dot\gamma_\alpha) = -(d\mathbf{L} u)(\nabla u) \ge 0
+        \]
+        <p>
+            for \(\nu\)-almost \(\alpha\) such that \(\gamma_\alpha\) is nondegenerate.
+        </p>
+    </div>
+</section>
+
+
 
   <section data-background-iframe="flowfinal.html" data-background-interactive>
     <h2 style="font-size: 2.5em; font-weight: 1000;">Thank you!</h2>

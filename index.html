@@ -92,7 +92,7 @@
       <h2 style="color: #6c939e; font-size: .95em;">Results</h2>
         <ul>
           <li>Displacement Convexity for Lagrangians</li>
-          <li>Horocyclic Brunn-Minkowski inequality</li>
+          <li>Horocyclic Brunn-Minkowski</li>
           <li>Brunn-Minkowski for contact magnetic geodesics</li>
           <li>Needle decomposition</li>
         </ul>
@@ -463,7 +463,7 @@
             <li class="fragment">Brunn-Minkowski characterizes lower Ricci curvature bounds <span style="color: #6f97a1 ; font-size: .8em">(Cordero-Erausquin, McCann & Schmuckenschläger '01, Sturm '06, Magnabosco, Portinale, Rossi '22)</span>.</li>
             <span class = "fragment">
             <li>Metric measure spaces <span style="color: #6f97a1 ; font-size: .8em">(Sturm '06, Cavalletti-Mondino '15)</span>.</li>
-            <li>Sub-Riemannian <span style="color: #6f97a1 ; font-size: .8em">(Barilari, Rizzi, Mondino '22)</span>.</li>
+            <li>Sub-Riemannian <span style="color: #6f97a1 ; font-size: .68em">(Balogh, Kristály & Sipos '16, Barilari, Rizzi & Mondino '22)</span>.</li>
             <li>Lorentzian <span style="color: #6f97a1 ; font-size: .8em">(McCann '20, Cavalletti-Mondino '20)</span>.</li></span>
           </ul>
       </div>
@@ -610,8 +610,7 @@
     \[ L = g/2 - V,\]
     where \(g\) is a Riemannian metric and \(V\) is a function. </p>
     <p class = "fragment">
-    \[E(v) = |v|^2/2 + V(x), \qquad v \in T_xM, \,\, x \in M.\]
-    \[\nabla_{\dot\gamma}\dot\gamma = -\nabla V.\]</p>
+    \[(\mathrm{E-L}) \qquad \nabla_{\dot\gamma}\dot\gamma = -\nabla V.\]</p>
   </section>
 
     <section data-background-iframe="electric.html" data-background-interactive data-auto-animate>
@@ -642,8 +641,7 @@
     \[ L = g/2 + \eta\]
     where \(g\) is a Riemannian metric and \(\eta\) is a one-form. </span>
     <p class = "fragment">
-    \[E(v) = |v|^2/2 , \qquad v \in T_xM, \,\, x \in M.\]
-    \[\nabla_{\dot\gamma}\dot\gamma = \mathrm{Y}v, \quad \text{where } \left\langle\mathrm{Y}\,\cdot\,, \,\cdot \, \right\rangle=d\eta.\]</p>
+    \[(\mathrm{E-L}) \qquad \nabla_{\dot\gamma}\dot\gamma = \mathrm{Y}v, \quad \text{where } \left\langle\mathrm{Y}\,\cdot\,, \,\cdot \, \right\rangle=d\eta.\]</p>
   </section>
 
   <section data-background-iframe="magnetic.html" data-background-interactive data-auto-animate>
@@ -652,7 +650,7 @@
 
 <section>
     <div style="text-align: left; font-size: .9em;">
-      <p>The <b> Hamiltonian </b> is Fenchel conjugate of the Lagrangian:
+      <p>The <b> Hamiltonian </b> is the <i>Fenchel conjugate</i> of the Lagrangian:
       \[H(p) : = \sup_{v \in T_xM}p(v) - L(v), \quad p\in T^*_xM,\,\,x \in M.\]</p>
       <p class = "fragment">The supremum is achieved at \(\mathcal{L}p\), where \(\mathcal{L} : T^*M \to TM\) &nbsp; is the <b> Legendre transform </b> associated to \(L\).</p>
 
@@ -838,6 +836,11 @@
     <iframe data-src="flowhyp.html" width="100%" height="700" style="border:0;"></iframe>
   </section>
 
+  <!-- <section>
+    <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp -1: &nbsp The hyperbolic plane</h3>
+    <iframe data-src="flowhyp2.html" width="100%" height="700" style="border:0;"></iframe>
+  </section> -->
+
   <!-- <section data-auto-animate>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
     <div style="text-align: left; font-size: .65em;">
@@ -884,6 +887,7 @@
         <li class = "fragment"><span style="color: #6f97a1">Evans-Gangbo '00, Caffarelli-Feldman-McCann '01, Feldman-McCann '02</span> - The solution to the Monge-Kantorovich problem with cost <b>d</b> provides a disintegration of the manifold into disjoint 1d measures ("needles").</li>
         <li class = "fragment"><span style="color: #6f97a1">Klartag '14</span> - together with CD bounds, this can be used to prove geometric inequalities on weighted Riemannian manifolds <span style="color: #6f97a1; font-size: .8em;">(Gromov-Milman '87, Lovasz-Simonovits '93)</span>.</li>
         <li class = "fragment">Finsler <span style="color: #6f97a1 ; font-size: .8em">(Ohta '15)</span>, mms <span style="color: #6f97a1 ; font-size: .8em">(Cavalletti-Mondino '15)</span>, Sub-Riemannian <span style="color: #6f97a1 ; font-size: .8em">(Milman '19)</span>, Lorentzian <span style="color: #6f97a1 ; font-size: .8em">(Braun-McCann '23, Cavalletti-Mondino '24).</span></li>
+        <li class = "fragment">What about <b>Lagrangian</b>?...</li>
       </ul>
     </div>
   </section>
@@ -1266,6 +1270,37 @@
     </div>
 </section>
 
+<section>
+    <div style="text-align: left; font-size: .75em;">
+        <p>
+            <b>Theorem</b> (A. '25):
+            Let \(N \in [n,\infty]\) and \(K \in \mathbb{R}\). TFAE:
+        </p>
+        <ol>
+            <li>
+                \(\mathrm{Ric} _{L,\mu,N} \ge {K}\) on \(SM\).
+            </li>
+            <li>
+                Every local solution \(u\) to the Hamilton-Jacobi equation \(H(du) = 0\) satisfies
+                \[
+                    (d\mathbf{L} u)(\nabla u) + \frac{(\mathbf{L} u)^2}{N-1} + {K} \le 0.
+                \]
+            </li>
+            <li>
+                For every \(\mu_0 = f_0\mu,\;\mu_1 = f_1\mu \in \mathcal{P}_1(L)\) there exists a displacement interpolation \(\mu_\lambda\) between \(\mu_0\) and \(\mu_1\) such that for every \(\lambda \in [0,1]\),
+                \[
+                \small
+                    \mathrm{S}_{N}[\mu_\lambda|\mu] \le 
+                    \begin{cases}
+                        \mathbb{E}\left[\tau_{1-\lambda}^{{K},{N}}\cdot \left(-f_0(\gamma(0))^{-1/{N}}\right) + \tau_{\lambda}^{{K},{N}}\cdot \left(-f_1(\gamma(1))^{-1/{N}}\right)\right] & {N} < \infty\\[9pt]
+                        (1-\lambda)\cdot\mathrm{S}_\infty[\mu_0|\mu] + \lambda\cdot\mathrm{S}_\infty[\mu_1|\mu] - \frac{K}{2}\cdot\lambda\cdot(1-\lambda)\cdot \mathbb{E} T^2 & {N} =\infty,
+                    \end{cases}
+                \]
+                where \(\gamma:[0,T] \to M\) is a random extremal such that \[\gamma(\lambda T)\sim \mu_\lambda \quad \text{ for all } \quad 0\le\lambda\le1.\]
+            </li>
+        </ol>
+    </div>
+</section>
 
 
 </div></div>

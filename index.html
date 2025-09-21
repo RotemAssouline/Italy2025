@@ -33,17 +33,28 @@
   .reveal { font-family: 'Alegreya Sans', serif; }
   .reveal p, .reveal li { font-weight: 400; }
   .reveal strong, .reveal b { font-weight: 700; }
-  .reveal h4 {
-  font-family: 'Alegreya Sans', sans-serif;
-  font-weight: 500;
-  }
-  .reveal h1, .reveal h2, .reveal h3{
+
+  .reveal h1{
   font-family: 'Alegreya Sans Bold', sans-serif;
   font-weight: 700;
   }
+  .reveal h2{
+  font-family: 'Alegreya Sans Bold', sans-serif;
+  font-weight: 700;
+  }
+  .reveal h3{
+  font-family: 'Alegreya Sans Bold', sans-serif;
+  font-weight: 600;
+  font-size: 1.2em;
+  }
+  .reveal h4 {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  }
   #title { text-align:center; }
   #title h2 { font-weight: 800;';}
-  #title h3 { font-weight: 500; }
+  #title h3 { font-weight: 300; }
   #title p { font-weight: 400; }
   .r-fit-text { font-size: clamp(18px, 2.6vw, 38px); }
   .tiny { font-size: 75%; }
@@ -67,14 +78,12 @@
   <div class="reveal"><div class="slides">
   <section id="title" data-background-color="#7FAEBA">
     <h2>Curvature-Dimension for Autonomous Lagrangians</h2>
-    <h3>Ph.D. Thesis Defense</h3>
-    
     <br>
-    <p>Weizmann Institute of Science<br>September 2025</p>
+    <h4><strong>Rotem Assouline</strong></h3>  
+    <br><br>
+    <h4>Dipartimento di Matematica, Tor Vergata</h4>
+    <h4>September 2025</h3>
     <br>
-
-    <p><strong>Rotem Assouline</strong></p>  
-    <p>Advisor: Prof. Bo'az Klartag</p>
   </section>
   
   <section>
@@ -104,18 +113,14 @@
     <h2>Background</h2>
   </section>
 
-  <section data-background-color="#7FAEBA">
-    <p style="font-size:60px"><b>Prelude</b>: The Brunn-Minkowski inequality</span> </p>
-  </section>
-
   <section data-auto-animate>
     <h3 style="color: #6c939e" data-id="bmeq">The Brunn-Minkowski inequality</h3>
     <div style="text-align: left; font-size: .9em;">
       <p>\(A,B \subseteq \mathbb{R}^n\) &nbsp;, \(0 \le \lambda \le 1\) &nbsp.</p>
       \[(1-\lambda) A + \lambda B : = \left\{(1-\lambda)a + \lambda b \, \mid \, a \in A, \, b \in B\right\}.\]
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 2048 646">
-    <g class = "fragment">
+    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 2048 646"  data-id="bmfig">
+    <g>
     <rect width="100%" height="100%" fill="white"/>
     <path d="M 1698 32 L 1455 233 L 1932 623 L 2033 109 Z" fill="#e2e2e2" stroke="none"/>
     <text x = "0" y = "70" style="font-size: 100;font-family:'Alegreya'">(λ = 1/2)</text>
@@ -126,7 +131,7 @@
     <text x="1050" y="320" text-anchor="middle" dominant-baseline="middle" style="font-size:80; font-family:'Alegreya'">(1-λ)A + λB</text>
     <text x="1770" y="280" text-anchor="middle" dominant-baseline="middle" style="font-size:100; font-family:'Alegreya'">B</text>
     </g>
-    </svg>
+    </svg>  
   </section>
 
   <section data-auto-animate>
@@ -135,205 +140,19 @@
       <p><b>Theorem</b> (Brunn-Minkowski) :</p> For every \(A,B \subseteq \mathbb{R}^n\) &nbsp; Borel, nonempty and every \(0 \le \lambda \le 1\) &nbsp;,
       \[\mathrm{Vol}((1-\lambda) A + \lambda B)^{1/n} \ge (1-\lambda)\cdot\mathrm{Vol}(A)^{1/n} + \lambda\cdot\mathrm{Vol}(B)^{1/n}.\]
     </div>
-  <svg width="800" height="400" viewBox="0 40 800 400" xmlns="http://www.w3.org/2000/svg" class = "fragment">
-  <defs>
-    <style>
-      .axis-text { font-family: Arial, sans-serif; font-size: 12px; fill: #666; }
-      .axis-label { font-family: Arial, sans-serif; font-size: 11px; fill: #888; }
-      .legend-text { font-family: Arial, sans-serif; font-size: 10px; fill: #666; text-anchor: middle; }
-    </style>
-  </defs>
-  
-  <!-- White background -->
-  <rect width="800" height="400" fill="white"/>
-
-  
-  <!-- Animation Panel (left side) -->
-  <g id="animation-panel">
-    <!-- Animation background -->
-    <rect x="50" y="50" width="300" height="300" fill="white"/>
-    
-    <!-- Animated shape -->
-    <rect id="animated-shape" 
-          x="75" y="75" 
-          width="200" height="200" 
-          fill="#91c7d4" 
-          stroke="#5A8A95" 
-          stroke-width="0"
-          rx="100" ry="100"/>
-  </g>
-  
-  <!-- Graph Panel (right side) -->
-  <g id="graph-panel" transform="translate(420, 20)">
-    
-    <!-- Legend -->
-    <!-- <text x="180" y="15" class="legend-text">Circle: 17,671px² | Square: 22,500px²</text>
-     -->
-    <!-- Graph area background -->
-    <rect x="40" y="30" width="320" height="280" fill="none" stroke="#f0f0f0"/>
-    
-    <!-- Grid lines -->
-    <g stroke="#f0f0f0" stroke-width="1" stroke-dasharray="3,3">
-      <!-- Vertical grid lines -->
-      <!-- <line x1="80" y1="30" x2="80" y2="310"/> -->
-      <!-- <line x1="120" y1="30" x2="120" y2="310"/> -->
-      <!-- <line x1="160" y1="30" x2="160" y2="310"/> -->
-      <line x1="200" y1="30" x2="200" y2="310"/>
-      <!-- <line x1="240" y1="30" x2="240" y2="310"/> -->
-      <!-- <line x1="280" y1="30" x2="280" y2="310"/> -->
-      <!-- <line x1="320" y1="30" x2="320" y2="310"/> -->
-      
-      <!-- Horizontal grid lines -->
-      <!-- <line x1="40" y1="70" x2="360" y2="70"/>
-      <line x1="40" y1="110" x2="360" y2="110"/>
-      <line x1="40" y1="150" x2="360" y2="150"/>
-      <line x1="40" y1="190" x2="360" y2="190"/>
-      <line x1="40" y1="230" x2="360" y2="230"/>
-      <line x1="40" y1="270" x2="360" y2="270"/> -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 2048 646" data-id="bmfig">
+    <g>
+    <rect width="100%" height="100%" fill="white"/>
+    <path d="M 1698 32 L 1455 233 L 1932 623 L 2033 109 Z" fill="#e2e2e2" stroke="none"/>
+    <text x = "0" y = "70" style="font-size: 100;font-family:'Alegreya'">(λ = 1/2)</text>
+    <path d="M 287 212 L 152 433 L 495 500 Z" fill="#e2e2e2" stroke="none"/>
+    <path d="M 993 118 L 867 221 L 799 328 L 1045 533 L 1215 566 L 1269 304 L 1163 158 Z" fill="#91c7d4" stroke="none"/>
+    <!-- Original color was #ffb3c8 -->
+    <text x="300" y="360" text-anchor="middle" dominant-baseline="middle" style="font-size:100; font-family:'Alegreya'">A</text>
+    <text x="1050" y="320" text-anchor="middle" dominant-baseline="middle" style="font-size:80; font-family:'Alegreya'">(1-λ)A + λB</text>
+    <text x="1770" y="280" text-anchor="middle" dominant-baseline="middle" style="font-size:100; font-family:'Alegreya'">B</text>
     </g>
-    
-    <!-- Axes -->
-    <line x1="40" y1="310" x2="360" y2="310" stroke="#333" stroke-width="1"/>
-    <line x1="40" y1="30" x2="40" y2="310" stroke="#333" stroke-width="1"/>
-    
-    <!-- X-axis ticks and labels -->
-    <g class="axis-text">
-      <line x1="40" y1="310" x2="40" y2="315" stroke="#333"/>
-      <text x="40" y="330" text-anchor="middle">0</text>
-      
-      <!-- <line x1="120" y1="310" x2="120" y2="315" stroke="#333"/>
-      <text x="120" y="330" text-anchor="middle">1</text> -->
-      
-      <line x1="200" y1="310" x2="200" y2="315" stroke="#333"/>
-      <text x="200" y="330" text-anchor="middle">1/2</text>
-      
-      <!-- <line x1="280" y1="310" x2="280" y2="315" stroke="#333"/>
-      <text x="280" y="330" text-anchor="middle">3</text> -->
-      
-      <line x1="360" y1="310" x2="360" y2="315" stroke="#333"/>
-      <text x="360" y="330" text-anchor="middle">1</text>
-    </g>
-    
-    <!-- Y-axis ticks and labels -->
-    <g class="axis-text">
-      <line x1="35" y1="310" x2="40" y2="310" stroke="#333"/>
-      <text x="32" y="314" text-anchor="end">0</text>
-      
-      <line x1="35" y1="170" x2="40" y2="170" stroke="#333"/>
-      <text x="32" y="174" text-anchor="end">1</text>
-
-      <line x1="35" y1="62.2" x2="40" y2="62.2" stroke="#333"/>
-      <text x="32" y="66.2" text-anchor="end">√​​π</text>
-      
-      <line x1="35" y1="30" x2="40" y2="30" stroke="#333"/>
-      <text x="32" y="34" text-anchor="end">2</text>
-    </g>  
-    
-    <!-- Axis labels -->
-    <text x="200" y="355" text-anchor="middle" class="axis-label" style="font-size: .5em;">λ</text>
-
-    <text x="0" y="150" text-anchor="middle" class="axis-label" transform="rotate(-90, 15, 170)" style="font-size: .5em;">Area<tspan baseline-shift="super" font-size="60%">1/2</tspan></text>
-    
-    <!-- Area curve path -->
-    <path id="area-curve" stroke="#7FAEBA" stroke-width="2" fill="none" d=""/>
-    
-    <!-- Current time indicator -->
-    <line id="time-indicator" x1="40" y1="30" x2="40" y2="310" stroke="#e3e3e3" stroke-width="2" stroke-dasharray="5,5"/>
-  </g>
-  
-  <script type="text/javascript">
-    <![CDATA[
-    // Animation parameters
-    const animationDuration = 8000; // 4 seconds in milliseconds
-    let startTime = Date.now();
-    
-    // Get references to animated elements
-    const animatedShape = document.getElementById('animated-shape');
-    const timeIndicator = document.getElementById('time-indicator');
-    const areaCurve = document.getElementById('area-curve');
-    
-    // Function to calculate corner radius based on time (circle->square->circle)
-    function getCurrentRadius(t) {
-      const normalizedTime = t / animationDuration;
-      if (normalizedTime <= 0.5) {
-        // First half: 100 to 0 (circle to square)
-        return 100 - (normalizedTime / 0.5) * 100;
-      } else {
-        // Second half: 0 to 100 (square to circle)
-        return ((normalizedTime - 0.5) / 0.5) * 100;
-      }
-    }
-    
-    // Function to calculate area of rounded rectangle
-    function calculateArea(rx, width = 200, height = 200) {
-      const maxR = Math.min(width, height) / 2;
-      const clampedRx = Math.min(rx, maxR);
-      
-      if (clampedRx === 0) {
-        return width * height; // Square
-      }
-      
-      if (clampedRx === maxR) {
-        return Math.PI * maxR * maxR; // Circle
-      }
-      
-      // Rounded rectangle
-      const rectangleArea = (width - 2 * rx) * (height - 2 * rx);
-      const cornerCuts = 8 * (100 - clampedRx) * clampedRx;
-      const cornerCircles = Math.PI * clampedRx * clampedRx;
-      
-      return rectangleArea + cornerCuts + cornerCircles;
-    }
-    
-    // Generate the complete curve path
-    function generateCurvePath() {
-      let path = '';
-      const steps = 200;
-      
-      for (let i = 0; i <= steps/2; i++) {
-        const t = (i / steps) * animationDuration;
-        const rx = getCurrentRadius(t);
-        const area = calculateArea(rx);
-        
-        // Convert to graph coordinates and take square root
-        const x = 40 + 2 * (t / animationDuration) * 320; // 320px wide graph
-        const y = 310 - (Math.sqrt(area) / 200) * 280; // 280px tall graph, 25000 max area
-        
-        if (i === 0) {
-          path += `M ${x} ${y}`;
-        } else {
-          path += ` L ${x} ${y}`;
-        }
-      }
-      
-      return path;
-    }
-    
-    // Set the static curve path
-    areaCurve.setAttribute('d', generateCurvePath());
-    
-    // Animation loop
-    function animate() {
-      const currentTime = (Date.now() - startTime) % animationDuration;
-      
-      // Update shape
-      const currentRadius = getCurrentRadius(currentTime);
-      animatedShape.setAttribute('rx', currentRadius);
-      animatedShape.setAttribute('ry', currentRadius);
-      
-      // Update time indicator
-      const indicatorX = 40 + 320 - Math.abs(320 - 2 * (currentTime / animationDuration) * 320);
-      timeIndicator.setAttribute('x1', indicatorX);
-      timeIndicator.setAttribute('x2', indicatorX);
-      
-      requestAnimationFrame(animate);
-    }
-    
-    // Start animation
-    animate();
-    ]]>
-  </script>
-  </svg>
+    </svg> 
   </section>
 
 
@@ -414,19 +233,11 @@
     </div>
 
     <div data-id="panel" style="position:absolute;left:0%;top:25%;width:100%;height:75%;background:rgba(127,174,186,0.15);border-radius:30px;"></div>
-    <div style="position:absolute;left:5%;top:30%;width:90%;height:60%;line-height:1.4;text-align:left; font-size: .9em;">
-        <p class = "fragment">Replace \( \mathrm{Vol} \) with \[ \mu = e^{-\psi}\mathrm{Vol}. \]</p>
-        <ul>
-          <li class = "fragment"> 
-            Measures \(\mu\) in \(\mathbb{R}^n\) satisfying Brunn-Minkowski can be characterized in terms of the function \(\psi\) <span style="color: #6f97a1 ; font-size: .8em">(Borell '75, Brascamp-Lieb '76)
-          </li>
-          <li class = "fragment">
-            Bakry-Émery curvature-dimension <span style="color: #a1a1a1 ; font-size: .8em">(more on this later...)</span>
-          </li>
-        </ul>
-    </div>
+    <div style="position:absolute;left:5%;top:30%;width:90%;height:60%;line-height:1.4;text-align:left; font-size: .9em;" class="fragment">
+    Replace \( \mathrm{Vol} \) with \[ \mu = e^{-\psi}\mathrm{Vol}. \]
 
-  </div>
+    Measures \(\mu\) in \(\mathbb{R}^n\) satisfying Brunn-Minkowski can be characterized in terms of the function \(\psi\) <span style="color: #6f97a1 ; font-size: .8em">(Borell '75, Brascamp-Lieb '76)</span>.
+    </div>
 </section>
 
 
@@ -565,12 +376,8 @@
   </div>
 </section>
 
-
-  <section data-background-color="#7FAEBA">
-    <p style="font-size:70px"><b>Part 1</b>: Lagrangians</p>
-  </section>
-
   <section>
+    <h3 style="color: #6c939e;" data-id="lagtitle">Lagrangians</h3>
     <div style="text-align: left;">
     <p>
       A <b> Lagrangian </b> \(L\) on a manifold \(M\) is a smooth function on the tangent bundle \(TM\). <span style="color: #a1a1a1;" class = "fragment">(strongly convex, superlinear)</span>
@@ -674,14 +481,8 @@
     </div>
   </section>
 
-
-  <section data-background-color="#7FAEBA">
-    <p style="font-size:70px"><b>Part 2</b>: Optimal Transport</p>
-  </section>
-
-  
-
-  <section>
+  <section data-auto-animate>
+    <h3 style="color: #6c939e;" data-id="ottitle">Optimal Transport</h3>
     <div style="text-align: left">
       <p>
       \((\mathcal X_0,\mu_0),(\mathcal X_1,\mu_1)\) &nbsp;- probability spaces. <br>
@@ -695,11 +496,11 @@
       <p class="fragment">
       Such \(T\) is called an <b> optimal transport map </b>.
       </p>
-      <p style="color: #6f97a1; font-size: .9em" class="fragment"> 🔮 Optimal transport seeks the most cost-efficient way to redistribute mass, goods, etc. from one configuration to another. </p>
     </div>
   </section>
 
-  <section>
+  <section data-auto-animate>
+  <h3 style="color: #6c939e;" data-id="ottitle">Optimal Transport</h3>
   <div style="text-align: left ; font-size: .9em;">
     Given a Lagrangian \(L\) on a manifold \(M\), we can set \(\mathcal X _0 = \mathcal X_1 = M\) and define a cost function
     \[\mathrm{c}(x_0,x_1) : = \inf_\gamma \mathrm{A}(\gamma), \qquad x_0,x_1 \in M,\]
@@ -729,14 +530,15 @@
   </div>
 </section>
 
-  <section>
+  <section data-auto-animate>
+  <h3 style="color: #6c939e;" data-id="ottitle">Optimal Transport</h3>
     <div style="text-align: left">
       <p><b>Theorem</b> <span style="color: #6f97a1;">(........, Bernard-Buffoni '05, Fathi-Figalli '07)</span>: 
           <span style="color: gray;">Under classical assumptions on the Lagrangian \(L\),</span> for every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measures on \(M\), there exists an optimal transport map \(T\) from \(\mu_0\) to \(\mu_1\). 
       </p>
     </div>
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 900 314.343" width="730" style="enable-background:new 0 0 430 314.343; display: block; margin: 0 auto;" xml:space="preserve">
+      viewBox="0 50 900 314.343" width="730" style="enable-background:new 0 0 430 314.343; display: block; margin: 0 auto;" xml:space="preserve">
       <path d="M0 314 Q 150 50 300 314 Z", fill = "#7FAEBA"/>
       <g id="simple-sand-castle-pattern-4" transform="scale(0.8) translate(700,80)", fill = "#7FAEBA">
         <path d="M430,314.343c-22.088-9.022-44.556-16.596-67.282-22.738c0.533-1.006,0.867-2.415,0.867-3.984V129.256h6.064
@@ -758,8 +560,9 @@
 
 
 
-  <section>
-    <div style="text-align: left; font-size: .85em">
+  <section data-auto-animate>
+  <h3 style="color: #6c939e;" data-id="ottitle">Optimal Transport</h3>
+    <div style="text-align: left; font-size: .8em">
       <p> In fact, there exists a family \(\{T_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of maps such that:</p>
           <ul>
             <li class = "fragment"> \(T_0 = \mathrm{Id}\) &nbsp; and \(T_1\) is an optimal transport map from \(\mu_0\) to \(\mu_1\).</li>
@@ -769,15 +572,29 @@
                 \[T_\lambda = \pi\circ\Phi_{\lambda\ell}^H\circ du \qquad \text{\(\mu_0\) -a.e.}\]
             </li>
           </ul>
-      <p class="fragment">The family \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of probability measures is called a <b>displacement interpolation</b> between \(\mu_0\) and \(\mu_1\).</p>
+      <span class="fragment">The family \(\{\mu_\lambda\}_{0 \le \lambda \le 1}\) &nbsp of probability measures is called a <b>displacement interpolation</b> between \(\mu_0\) and \(\mu_1\).</span>
     </div>
   </section>
 
-  <section>
+  <section data-auto-animate>
+  <h3 style="color: #6c939e;" data-id="ottitle">Optimal Transport</h3>
+    <div style="text-align: left; font-size: .85em;">
+      <p style = "font-size: .8em;"> <i>Displacement interpolation can also be described as follows</i>: </p>
+      There exists a random extremal \(\gamma:[0,T] \to M\) <span style = "font-size: .9em; color:#a1a1a1">(the number \(T > 0\) is also random)</span> such that
+            \[\gamma(0)\sim \mu_0, \qquad \gamma(T)\sim \mu_1,\]
+
+            and for every \(0 \le \lambda \le \lambda' \le 1\), the mapping \[\gamma(\lambda T) \mapsto \gamma(\lambda' T)\] is an optimal transport map between the laws of \(\gamma(\lambda T)\) and \(\gamma(\lambda' T)\).
+            
+            <p>There exists a viscosity subsolution \(u\) to the Hamilton-Jacobi equation such that the extremal \(\gamma\) is almost surely a gradient curve of \(u\).</p>
+    </div>
+  </section>
+
+  <section data-auto-animate>
+  <h3 style="color: #6c939e;" data-id="ottitle">Optimal Transport</h3>
   <!-- <section   style="position:relative; overflow:hidden;" data-background-iframe="GDI.html" data-background-interactive> -->
-    🔮
+    
     <div style="text-align: left; font-size: .9em; color: #6f97a1">
-    <p>  We can solve OT for costs arising from reasonable Lagrangians.</p>
+    <p> 🔮 &nbsp; We can solve OT for costs arising from nice Lagrangians.</p>
     <ul>
       <li class="fragment">The solution describes not only where each piece of goods should end up, but also <i>along what path</i> it should be transported. </li>
       <li class="fragment"> The resulting one-parameter family of maps (obtained by stopping the paths at intermediate times) are all optimal.</li>
@@ -788,80 +605,14 @@
   </section>
 
 
-  <section data-background-color="#7FAEBA">
-    <p style="font-size:70px"><b>Part 3</b>: Ricci curvature</p>
-  </section>
 
-  <!-- <section>
-    <div style="text-align: left;">
-    <p> A <b> Riemannian manifold </b> is a smooth manifold equipped with a <b> Riemannian metric </b>, which is a smooth choice of inner product on each tangent space. </p>
-    <p style="color: #6f97a1; font-size: .8em" class="fragment"> 🔮 A Riemannian manifold is a metric space which is Euclidean to first order. </p>
-    <p class="fragment"> A <b> geodesic </b> on a Riemannian manifold is (at least locally) the shortest path between a pair of points on the manifold. </p>
-    <p style="color: #6f97a1; font-size: .8em" class="fragment"> 🔮 Geodesics are the Riemannian analogue of straight lines. </p>
-    </div>
-  </section> -->
-
-  <section>
-    <div style="text-align: left; font-size: .9em;">
-    <!-- <p style="color: rgb(83, 129, 141); font-size: 1.1em"><b>Ricci curvature of Riemannian manifolds</b></p> -->
-    The <b> Ricci curvature</b> of a Riemannian manifold is a fiberwise quadratic form which is a trace of the <b> Riemann Curvature tensor</b>:
-    \[\mathrm{Ric}(v) = \mathrm{tr}\left(w \mapsto R(w,v)v \right), \qquad v \in TM.\]
-
-    <p class = "fragment">
-    If \(V \) is a vector field such that \[\nabla_VV = 0, \qquad V\vert_x = v \qquad \text{ and } \qquad \nabla V\vert_x = 0,\] then 
-    <span style="color: #6f97a1">\(V\mathrm{div} V\vert_x = -\mathrm{Ric}(v)\)
-    </span>.</p>
-    <p class = "fragment"> If \(V = \nabla u\) &nbsp; for a function \(u\) then <span style="color: #6f97a1">\((d\Delta u)(\nabla u)\vert_x = -\mathrm{Ric}(v)\)</span>.</p>
-
-    <p style="color: #6f97a1; font-size: 1" class="fragment"> 🔮 If we take a small object and let it flow along "parallel" geodesics in the direction \(v\), then the second (logarithmic) derivative of the object's volume will be roughly \(-\mathrm{Ric}(v)\)&nbsp. </p>
-    </div>
-  </section>
-<!-- 
-  <section>
-    <iframe data-src="flow1.html" width="100%" height="700" style="border:0;"></iframe>
-  </section> -->
-
-  <section>
-    <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp 0: &nbsp The Euclidean plane</h3>
-    <iframe data-src="flow0.html" width="90%" height="700" style="border:0;"></iframe>
-  </section>
-
-  <section>
-    <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp 1: &nbsp The sphere</h3>
-      <iframe data-src="flowsph.html" width="100%" height="700" style="border:0; translate: 0px -30px;"></iframe>
-  </section>
-
-  <section>
-    <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp -1: &nbsp The hyperbolic plane</h3>
-    <iframe data-src="flowhyp.html" width="100%" height="700" style="border:0;"></iframe>
-  </section>
-
-  <!-- <section>
-    <h3 style="color: rgb(83, 129, 141); font-size: 1em">Example &nbsp -1: &nbsp The hyperbolic plane</h3>
-    <iframe data-src="flowhyp2.html" width="100%" height="700" style="border:0;"></iframe>
-  </section> -->
-
-  <!-- <section data-auto-animate>
-    <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
-    <div style="text-align: left; font-size: .65em;">
-      <p><b>Theorem</b> <span style="color:#6c939e">(McCann '97, Cordero-Eruasquin-McCann-Schmuckenschläger '01, von Renesse-Sturm '05, Lott-Villani '07)</span>: Let \((M,g)\) &nbsp; be a complete Riemannian manifold. The following are equivalent:
-        <ul>
-          <li> \(\mathrm{Ric}_g \ge 0\) &nbsp;.</li>
-          <li> For every pair \(\mu_0,\mu_1\) of absolutely-continuous, compactly supported probability measures on \(M\), the function
-            \[\lambda \mapsto \int_M \log f_\lambda d\mu_\lambda\]
-            is convex on \([0,1]\), &nbsp; where \[\mu_\lambda = f_\lambda\mathrm{Vol}_g\] is the displacement interpolation between \(\mu_0\) and \(\mu_1\) with cost <b>d<sup>2</sup></b>.
-          </li>
-        </ul>
-      </p>
-      <p style="color: #6c939e; font-size: 1" class="fragment"> 🔮 In nonnegative Ricci curvature, the intermediate measures in the displacement interpolation are more "spread out" than the measures at the endpoints. </p>
-    </div>
-  </section> -->
 
   <section data-auto-animate>
     <h3 style="color: rgb(83, 129, 141); font-size: 1em" data-id="ricot">Ricci curvature and optimal transport</h3>
-    <div style="text-align: left; font-size: .9em;">
-    <p style="color: #6f97a1; font-size:.9em">McCann '97, Cordero-Eruasquin-McCann-Schmuckenschläger '01, von Renesse-Sturm '05, Lott-Villani '07:</p> \(\mathrm{Ric}_g \ge 0 \iff \) <b>displacement convexity</b>: for every \(L^2\) displacement interpolation \(\mu_\lambda = f_\lambda\mathrm{Vol}_g\),
-      \[\mathrm{Ent}[\mu_\lambda|\mathrm{Vol}_g]:=\int f_\lambda d\mu_\lambda, \quad \text{is convex in } \lambda.\]
+    <div style="text-align: left; font-size: .9em;" class = "fragment">
+    <p><span style="color: #6f97a1; font-size:.8em">McCann '97, Cordero-Eruasquin-McCann-Schmuckenschläger '01, von Renesse-Sturm '05, Lott-Villani '07:</span> \((M,g)\) complete Riemannian manifold.</p> 
+    <p>\(\mathrm{Ric}_g \ge 0 \iff \) <b>displacement convexity</b>: for every displacement interpolation \(\mu_\lambda = f_\lambda\mathrm{Vol}_g\) with cost \(d_g^2/2\),
+      \[\mathrm{Ent}[\mu_\lambda|\mathrm{Vol}_g]:=\int f_\lambda d\mu_\lambda, \quad \text{is convex in } \lambda.\]</p>
     <ul>
       <li class = "fragment">Arbitrary lower Ricci curvature and upper dimension bounds; arbitrary reference measures (weighted Ricci curvature) <span style="color: #6f97a1 ; font-size: .8em">(C-M-S '01, von Renesse-Sturm '05, Lott-Villani '07)</span>.</li>
       <li class = "fragment">Synthetic curvature-dimension bounds for mms's via optimal transport<span style="color: #6f97a1 ; font-size: .8em"> (Sturm '06, Lott-Villani '07)</span>.</li>
@@ -953,9 +704,9 @@
       <div class = "fragment">
       <p style="font-size: .85em">
         \[
-        \mathrm{S}_N[\mu_0|\mu] := -\int_M f_0^{-1/N} \, d\mu_0 
+        \mathrm{S}_N[f_0\mu |\mu] := -\int_M f_0^{-1/N} \, d\mu_0 
         \quad (1 \lt N \lt \infty) \quad \text{and} \quad 
-        \mathrm{S}_{\infty}[\mu_0|\mu] := \int_M \log f_0 \, d\mu_0.
+        \mathrm{S}_{\infty}[f_0\mu |\mu] := \int_M \log f_0 \, d\mu_0.
         \]
       </p>
       <p style="color:#888; font-size: .65em">
@@ -1131,12 +882,8 @@
   </div>
   </section>
 
-  <section data-background-iframe="flowfinal.html" data-background-interactive>
-    <h2 style="font-size: 2.5em; font-weight: 1000;">Thank you!</h2>
-  </section>
-
-<section>
-    <h2 style="color: #6c939e; font-size: .9em">Sketch of proof</h2>
+<section data-auto-animate>
+    <h2 style="color: #6c939e; font-size: .9em" data-id="sketchtitle">Sketch of proof</h2>
     <div style="text-align: left; font-size: .6em;">
         <p>
             <u>Part I</u>: \(L^1\) optimal transport <span style="color: #6f97a1">(Evans-Gangbo '99, Feldman-McCann '02, Caffarelli- Feldman-McCann '02. <i>Also</i>: Bernard-Buffoni '06, Figalli '07, Fathi-Figalli '10)</span>. Let \(u : M \to \mathbb{R}\) satisfy
@@ -1169,8 +916,8 @@
     </div>
 </section>
 
-<section>
-    <h2 style="color: #6c939e; font-size: .9em">Sketch of proof</h2>
+<section data-auto-animate>
+    <h2 style="color: #6c939e; font-size: .9em" data-id="sketchtitle">Sketch of proof</h2>
     <div style="text-align: left; font-size: .6em;">
         <p>
             Let \(\{\gamma_\alpha:I_\alpha \to M\}_{\alpha\in\mathscr{A}}\) be the collection of transport rays. Make a change of variables:
@@ -1202,8 +949,8 @@
     </div>
 </section>
 
-<section>
-    <h2 style="color: #6c939e; font-size: .9em">Sketch of proof</h2>
+<section data-auto-animate>
+    <h2 style="color: #6c939e; font-size: .9em" data-id="sketchtitle">Sketch of proof</h2>
     <div style="text-align: left; font-size: .6em;">
         <p>
             For every \(\alpha \in \mathscr{A}\) Define a measure \(m_\alpha\) on the interval \(I_\alpha\) by
@@ -1235,8 +982,8 @@
     </div>
 </section>
 
-<section>
-    <h2 style="color: #6c939e; font-size: .9em">Sketch of proof</h2>
+<section data-auto-animate>
+    <h2 style="color: #6c939e; font-size: .9em" data-id="sketchtitle">Sketch of proof</h2>
     <div style="text-align: left; font-size: .6em;">
         <p>
             <u>Part II:</u> It remains to show that \(\nu\)-a.e needle \(\mu_\alpha\) satisfies \(\mathrm{CD}(K,N)\). Assume for simplicity \(K=0,N=\infty,\mu = \mathrm{Vol}_g\) and recall
@@ -1270,7 +1017,11 @@
     </div>
 </section>
 
-<section>
+  <section data-background-iframe="flowfinal.html" data-background-interactive>
+    <h2 style="font-size: 2.5em; font-weight: 1000;">Thank you!</h2>
+  </section>
+
+  <section>
     <div style="text-align: left; font-size: .75em;">
         <p>
             <b>Theorem</b> (A. '25):
@@ -1301,7 +1052,6 @@
         </ol>
     </div>
 </section>
-
 
 </div></div>
   

@@ -94,7 +94,7 @@
           <li>The Brunn-Minkowski inequality </li>
           <li>Lagrangians</li>
           <li>Optimal transport</li>
-          <li>Ricci curvature</li>
+          <li>Ricci curvature and optimal transport</li>
         </ul>
       </p>
       <p>
@@ -402,7 +402,7 @@
     <ul>
       <li class = "fragment"> \(L = T - V\), where \(T\) is kinetic energy (i.e. quadratic in the velocity) and \(V\) is potential energy.
         <ul>
-          <li class = "fragment"><b>Riemannian metrics</b>: \(V = 0\). Action = length\(^2\) <span style = "font-size: .9em; color:#a1a1a1;">(for unit-speed curves)</span>, extremals = geodesics.</li>
+          <li class = "fragment"><b>Riemannian metrics</b>: \(V = 0\). Action = length\(^2\) <span style = "font-size: .9em; color:#a1a1a1;">(for constant-speed curves)</span>, extremals = geodesics.</li>
           <li class = "fragment"><b> Mechanical Lagrangians</b>: \(V\) is a potential depending only on position.</li>
         </ul>
       </li>
@@ -415,8 +415,8 @@
 
 
   <section data-auto-animate>
-    <h3 data-id="mechtitle">The mechanical Lagrangian</h3>
-    <div style="position:relative; z-index:1;">
+    <h4 data-id="mechtitle"><b>Example</b>: The mechanical Lagrangian</h4>
+    <div style="text-align: left; font-size: .8em;">
     \[L(x,v) = \frac{|v|^2}{2} - V(x).\]
     <p>More generally:
     \[ L = g/2 - V,\]
@@ -426,12 +426,12 @@
   </section>
 
     <section data-background-iframe="electric.html" data-background-interactive data-auto-animate>
-    <h3 data-id="mechtitle">The mechanical Lagrangian</h3>
+    <h4 data-id="mechtitle"><b>Example</b>: The mechanical Lagrangian</h4>
   </section>
 
   <section data-auto-animate>
-    <h3 style="color: #6f97a1"  data-id="nbodytitle">The many-body Lagrangian</h3>
-    <div style="position:relative; z-index:1; font-size: .8em;">
+    <h4 data-id="mechtitle"><b>Example</b>: The many-body Lagrangian</h4>
+    <div style="text-align: left; font-size: .8em;">
       \[M : = \left\{x = (x_1,\dots,x_k) \in (\mathbb{R}^d)^k \,\, \mid \,\, x_i \ne x_j \, \, \forall \, i\ne j\right\}.  \]
 
       
@@ -442,12 +442,12 @@
   </section>
 
   <section data-background-iframe="nbody.html" data-background-interactive data-auto-animate>
-    <h3 style="color: #6f97a1" data-id="nbodytitle">The many-body Lagrangian</h3>
+    <h4 data-id="mechtitle"><b>Example</b>: The many-body Lagrangian</h4>
   </section>
 
   <section data-auto-animate>
-    <h3 data-id="magtitle">The magnetic Lagrangian</h3>
-    <div style="position:relative; z-index:1;">
+    <h4 data-id="mechtitle"><b>Example</b>: The magnetic Lagrangian</h4>
+    <div style="text-align: left; font-size: .8em;">
     \[L(x,v) = \frac{|v|^2}{2} + A(x,v),\]
     where \(A\) is a vector potential (linear in \(v\)). <span class = "fragment"> More generally:
     \[ L = g/2 + \eta\]
@@ -457,7 +457,7 @@
   </section>
 
   <section data-background-iframe="magnetic.html" data-background-interactive data-auto-animate>
-    <h3 data-id="magtitle">The magnetic Lagrangian</h3>
+    <h4 data-id="mechtitle"><b>Example</b>: The magnetic Lagrangian</h4>
   </section>
 
 <section>
@@ -691,7 +691,7 @@
         <li class = "fragment">The <b>Ricci curvature</b> \(\mathrm{Ric}_L : TM\setminus\mathbf{0} \to \mathbb{R}\)&nbsp;, which coincides with the classical Ricci curvature for Riemannian and Finslerian manifolds.</li>
         <li class = "fragment">The <b>weighted Ricci curvature</b> \(\mathrm{Ric}_{L,\mu,N}\), which depends on \(\mu\) and on a parameter \(N \in (-\infty,\infty]\setminus \{1\}\) &nbsp;, and which also coincides with the weighted (Bakry-Émery) Ricci curvature for weighted Riemannian/Finslerian manifolds.</li>
       </ul>
-    <p style="color: #6f97a1 ; font-size: .8em" class="fragment">(Grifone '72, Foulon '86, Agrachev & Gamkrelidze '97, Lee '13)</p>
+    <p style="color: #6f97a1 ; font-size: .8em" class="fragment">(cf. Grifone '72, Foulon '86, Agrachev & Gamkrelidze '97, Lee '13)</p>
     </div>
   </section>
 
@@ -713,11 +713,11 @@
         </li>
       </ul>
       <div class = "fragment">
-      <p style="font-size: .85em">
+      <p style="font-size: .75em">
         \[
-        \mathrm{S}_N[f_0\mu |\mu] := -\int_M f_0^{-1/N} \, d\mu_0 
+        \mathrm{S}_N[f_0\mu |\mu] := -\int_M f_0^{1-1/N} \, d\mu 
         \quad (1 \lt N \lt \infty) \quad \text{and} \quad 
-        \mathrm{S}_{\infty}[f_0\mu |\mu] := \int_M \log f_0 \, d\mu_0.
+        \mathrm{S}_{\infty}[f_0\mu |\mu] := \int_M f_0\log f_0 \, d\mu.
         \]
       </p>
       <p style="color:#888; font-size: .65em">
@@ -755,9 +755,9 @@
     </div>
   </section>  
 
-  <section>
-    <h3 style="color: #6c939e; font-size: 1em;">The mechanical Lagrangian</h3>
-    <div style = "text-align: left; font-size: .8em;">
+  <section data-auto-animate="">
+    <h4 style="color: #6c939e; font-size: 1em;" data-id="resultsextitle">The mechanical Lagrangian</h4>
+    <div style = "text-align: left; font-size: .7em;">
       \[L = g/2 - U\]
       where \(g\) is a Riemannian metric and \(U\) is a smooth negative function.
       \[ \mathrm{Ric}_{L,\mathrm{Vol}_g,N} = \mathrm{Ric}_g  + \Delta V\cdot g -\left(1+\frac{1}{N-n}\right)\cdot (dV)^2 \qquad \text{ on } E^{-1}(0),\]
@@ -767,8 +767,8 @@
     </div>
   </section>
 
-  <section>
-    <h3 style="color: #6c939e; font-size: 1em;">The magnetic Lagrangian</h3>
+  <section data-auto-animate>
+    <h4 style="color: #6c939e; font-size: 1em;" data-id="resultsextitle">The magnetic Lagrangian</h4>
     <div style = "text-align: left; font-size: .8em;">
       \[L = g/2 + 1/2 - \eta\]
       where \(g\) is a Riemannian metric and \(\eta\) is a one-form.
@@ -1038,10 +1038,10 @@
         Time dependent Lagrangians - w.i.p
       </li>
       <li>
-        Splitting, Laplacian comparison ...
+        Splitting, Laplacian comparison...
       </li>
       <li>
-        More applications???
+        More applications for concrete Lagrangians?
       </li>
     </ul>
 </section>
